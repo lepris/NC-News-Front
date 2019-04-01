@@ -1,0 +1,19 @@
+{
+  "name": "fe2-nc-news-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lepris/NC-News-Front.git"
+  },
+  "author": "Karolina J",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lepris/NC-News-Front/issues"
+  },
+  "homepage": "https://github.com/lepris/NC-News-Front#readme"
+}
