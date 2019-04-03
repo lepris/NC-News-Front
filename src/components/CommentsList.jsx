@@ -24,7 +24,6 @@ class CommentsList extends Component {
     }
 
     handlePost = (input) => {
-        console.log(input)
         commentPost(this.props.artId, input)
             .then(() => fetchAllCommentsByArticleId(this.props.artId))
             .then(newComments => this.setState({ comments: newComments }))
@@ -32,10 +31,14 @@ class CommentsList extends Component {
 
     render() {
         return (<>
-            <ArticlePostComment handlePost={this.handlePost} />
+            {this.props.username.length > 2 ?
+                <ArticlePostComment username={this.props.username} handlePost={this.handlePost} />
+                :
+                <p>Please Log in to add comments</p>
+            }
             {this.state.comments.length > 0 ?
                 this.state.comments.map(com => {
-                    return <ArticleComment key={com.comment_id} comment={com} handleDelete={this.handleDelete} />
+                    return <ArticleComment key={com.comment_id} username={this.props.username} comment={com} handleDelete={this.handleDelete} />
                 })
                 :
                 <h4>'Sorry No comments for this article'</h4>}

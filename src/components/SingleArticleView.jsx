@@ -20,9 +20,10 @@ class SingleArticleView extends Component {
     }
 
     render() {
+
         return (<>
             <ArticleComponent art={this.state.article} />
-            {this.state.article.article_id && <CommentsList artId={this.state.article.article_id} />}
+            {this.state.article.article_id && <CommentsList username={this.props.username} artId={this.state.article.article_id} />}
         </>)
     }
 
