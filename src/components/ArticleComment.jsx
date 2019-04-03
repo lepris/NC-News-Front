@@ -1,25 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
+import CommentVote from './CommentVote';
 
-class ArticleComment extends Component {
-    state = {
-        comment: {}
-    }
-
-    componentDidMount() {
-        this.setComment()
-    }
-    setComment = () => {
-        const { comment } = this.props
-        console.log(comment)
-        this.setState({ comment })
-    }
-    render() {
-        return (
-            <>
-                <h4>{this.state.comment.author}</h4>
-                <p>{this.state.comment.body}</p>
-            </>)
-    }
+const ArticleComment = ({ comment }) => {
+    return (
+        <>
+            <p>{comment.body}</p>
+            <p>{comment.author} created at: [Placeholder for DATE]</p>
+            <CommentVote comment={comment} />
+        </>)
 }
 
 export default ArticleComment
