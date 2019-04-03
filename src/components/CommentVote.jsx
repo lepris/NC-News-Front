@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { commentVoteUp } from '../db/api'
+import { commentVoteUp, commentVoteDown } from '../db/api'
 
 class CommentVote extends Component {
     state = {
@@ -17,13 +17,20 @@ class CommentVote extends Component {
         commentVoteUp(this.state.comment.comment_id)
             .then((votes) => this.setState((prevState) => this.state.votesInc = prevState.votesInc + 1))
     }
+    handleVoteDown = () => {
+        commentVoteDown(this.state.comment.comment_id)
+            .then((votes) => this.setState((prevState) => this.state.votesInc = prevState.votesInc - 1))
+    }
 
 
     render() {
 
         return (<>
-            <p>voted: {this.state.comment.votes + this.state.votesInc} times</p>
-            <button onClick={this.handleVoteUp}>Vote Up</button> <button onClick={this.handleVoteDown}>Vote Down</button>
+            <p>voted: {this.state.comment.votes + this.state.votesInc} times&nbsp;
+            <button hidden={this.state.votesInc === 1} onClick={this.handleVoteUp}>Vote +</button>
+                <button hidden={this.state.votesInc === -1} onClick={this.handleVoteDown}>Vote -</button>
+            </p>
+
         </>)
     }
 }
