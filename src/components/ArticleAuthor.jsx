@@ -17,10 +17,10 @@ class ArticleAuthor extends Component {
     render() {
         console.log(this.state.authorData)
         return (
-            <>
-                <img className='avatar_big' src={this.state.authorData.avatar_url} />
-                <h4>{this.state.authorData.name}</h4>
-            </>)
+            <div className='article_author_container'>
+                <div className='avatar_big'><img alt='Article authors avatar image' src={this.state.authorData.avatar_url} /></div>
+                <div className='article_author_name'>{this.state.authorData.name}</div>
+            </div>)
     }
 }
 

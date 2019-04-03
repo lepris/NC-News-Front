@@ -1,4 +1,26 @@
+.article_author_container {
+  border: 1px solid #aaa;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+}
 .avatar_big {
-    display: flex;
-    height: 20vh;
+  border: 1px solid #bbb;
+  
+  display: flex;
+  justify-content: flex-end;
+
+}
+.avatar_big img {
+  height: 2em;
+
+
+  
+}
+.article_author_name {
+  
+
+  border: 1px solid #ccc;
+  flex-grow: 0;
 }
