@@ -12,16 +12,14 @@ class CommentVote extends Component {
         this.setState({ comment })
     }
 
-
     handleVoteUp = () => {
         commentVoteUp(this.state.comment.comment_id)
-            .then((votes) => this.setState((prevState) => this.state.votesInc = prevState.votesInc + 1))
+            .then((votes) => this.setState({ votesInc: 1 }))
     }
     handleVoteDown = () => {
         commentVoteDown(this.state.comment.comment_id)
-            .then((votes) => this.setState((prevState) => this.state.votesInc = prevState.votesInc - 1))
+            .then((votes) => this.setState({ votesInc: -1 }))
     }
-
 
     render() {
 
