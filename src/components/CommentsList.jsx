@@ -20,7 +20,7 @@ class CommentsList extends Component {
 
     render() {
         return this.state.comments.map((com, ind) => {
-            return <ArticleComment key={ind} comment={com} />
+            return <ArticleComment key={com.comment_id} comment={com} />
         })
     }
 }
