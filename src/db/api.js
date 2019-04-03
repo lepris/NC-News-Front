@@ -18,7 +18,7 @@ export const fetchArticleById = async (id) => {
 }
 
 export const fetchUserByUsername = async (username) => {
-    console.log('Hello from fetchUser')
+    console.log('Hello from fetchUser', username)
     const { data: { userData } } = await axios
         .get(`${Base_Url}/users/${username}`)
     return userData
