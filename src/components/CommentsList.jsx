@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { fetchAllCommentsByArticleId, commentDelete } from '../db/api'
+import { fetchAllCommentsByArticleId, commentDelete, commentPost } from '../db/api'
 import ArticleComment from './ArticleComment';
+import ArticlePostComment from './ArticlePostComment';
 
 class CommentsList extends Component {
     state = {
@@ -20,18 +21,26 @@ class CommentsList extends Component {
             .then(this.setState({ updateComments: 1 }))
             .then(() => fetchAllCommentsByArticleId(this.props.artId))
             .then(newComments => this.setState({ comments: newComments }))
+    }
 
+    handlePost = (input) => {
+        console.log(input)
+        commentPost(this.props.artId, input)
+            .then(() => fetchAllCommentsByArticleId(this.props.artId))
+            .then(newComments => this.setState({ comments: newComments }))
     }
 
     render() {
-        return (this.state.comments.length > 0 ?
-            this.state.comments.map((com, ind) => {
-                return <ArticleComment key={com.comment_id} comment={com} handleDelete={this.handleDelete} />
-            })
-            :
-            <h4>'Sorry No comments for this article'</h4>
+        return (<>
+            <ArticlePostComment handlePost={this.handlePost} />
+            {this.state.comments.length > 0 ?
+                this.state.comments.map(com => {
+                    return <ArticleComment key={com.comment_id} comment={com} handleDelete={this.handleDelete} />
+                })
+                :
+                <h4>'Sorry No comments for this article'</h4>}
 
-        )
+        </>)
     }
 
 }
