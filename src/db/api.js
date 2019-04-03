@@ -37,6 +37,13 @@ export const commentVoteUp = async (comId) => {
         .patch(`${Base_Url}/comments/${comId}`, { inc_votes: 1 })
     return votes
 }
+export const commentVoteDown = async (comId) => {
+    console.log('comment votes up')
+    const { data: { votes } } = await axios
+        .patch(`${Base_Url}/comments/${comId}`, { inc_votes: -1 })
+    return votes
+}
+
 
 
 
