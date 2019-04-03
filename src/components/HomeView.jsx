@@ -24,9 +24,7 @@ class HomeView extends Component {
                         <div>Loading...</div>
                     ) : (
                             this.state.articlesList.map((art, ind) => {
-
                                 return <HomeViewArticle key={ind} article={art} />
-
                             })
                         )}
 

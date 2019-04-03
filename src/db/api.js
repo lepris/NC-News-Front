@@ -24,5 +24,12 @@ export const fetchUserByUsername = async (username) => {
     return userData
 }
 
+export const fetchAllCommentsByArticleId = async (artId) => {
+    console.log('hello from comments api')
+    const { data: { comments } } = await axios
+        .get(`${Base_Url}/articles/${artId}/comments`)
+    return comments
+}
+
 
 

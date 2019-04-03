@@ -19,7 +19,9 @@
   
 }
 .article_author_name {
-  
+  font-size: 1.5em;
+  padding-left: 1em;
+  color: rgb(24, 24, 24);
 
   border: 1px solid #ccc;
   flex-grow: 0;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { fetchArticleById } from '../db/api'
-import ArticleAuthor from './ArticleAuthor';
+import { ArticleComponent } from './ArticleComponent';
+import CommentsList from './CommentsList';
 
 
 
 class SingleArticleView extends Component {
     state = {
         article: {},
-        comments: {}
     }
 
     componentDidMount() {
@@ -20,21 +20,9 @@ class SingleArticleView extends Component {
     }
 
     render() {
-        const art = this.state.article;
-        const createdWhen = new Date(art.created_at)
-
-        const date = createdWhen.getDate()
-        const month = createdWhen.getMonth()
-        const year = createdWhen.getFullYear()
-
-
         return (<>
-            {this.state.article.author && <ArticleAuthor username={art.author} />}
-            <span>created at: {`${date} / ${month} / ${year}`}</span>
-
-            <h1>{art.title}</h1>
-            <div>{art.body}</div>
-
+            <ArticleComponent art={this.state.article} />
+            {this.state.article.article_id && <CommentsList artId={this.state.article.article_id} />}
         </>)
     }
 
