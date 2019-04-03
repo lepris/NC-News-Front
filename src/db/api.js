@@ -45,14 +45,18 @@ export const commentVoteDown = async (comId) => {
 }
 
 export const commentDelete = async (comId) => {
-    console.log('comment votes up')
+    console.log('comment delete')
     const data = await axios
         .delete(`${Base_Url}/comments/${comId}`)
     return data
 }
 
-
-
+export const commentPost = async (artId, input) => {
+    console.log('comment post')
+    const { data } = await axios
+        .post(`${Base_Url}/articles/${artId}/comments`, input)
+    return data
+}
 
 
 
