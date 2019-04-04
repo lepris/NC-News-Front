@@ -1,7 +1,15 @@
 .App {
   text-align: center;
 }
+button{
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
 
+  border: 1px solid rgb(45, 103, 105);
+  background: rgb(144, 200, 202);
+  border-radius: 0.25em;
+  text-transform: uppercase;
+}
 
 
 

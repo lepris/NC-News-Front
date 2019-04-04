@@ -1,0 +1,30 @@
+.error_message{
+    display: flex;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    background: #eee;
+
+    font-size: 0.75em;
+}
+
+.fail {
+    color: rgb(172, 120, 111);
+    border: 1px solid  rgb(172, 120, 111);
+    background: rgb(241, 221, 195);
+}
+
+.success {
+    color: olive;
+    border: 1px solid olive;
+    background: rgb(206, 221, 175);
+}
+textarea{
+    width: 80vw;
+    margin: 0.5em;
+}
+
+form{
+    border: 1px solid #ccc;
+}
+
