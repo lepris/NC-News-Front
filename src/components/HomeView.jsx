@@ -17,7 +17,7 @@ class HomeView extends Component {
     }
 
     getArticles = () => {
-        fetchAllArticles(this.props.topics)
+        fetchAllArticles(this.props.topic)
             .then(articlesList => {
                 this.setState({ articlesList, loading: false })
             })
