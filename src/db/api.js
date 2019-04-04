@@ -3,7 +3,7 @@ import axios from 'axios';
 const Base_Url = 'https://banana-crisp-75783.herokuapp.com/api'
 
 export const fetchAllArticles = async () => {
-    console.log('Hello from Fetch in API')
+    console.log('///fetching all articles in API')
     const { data: { articles } } = await axios
         .get(`${Base_Url}/articles`)
     return articles

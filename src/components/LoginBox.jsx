@@ -40,10 +40,10 @@ class LoginBox extends Component {
     render() {
         return (<form onSubmit={this.formBehaviour}>
             {this.state.nameErr && <span className='login_message'>Your Username is incorrect :(</span>}
-            <label for='inputName'>username: </label><input type='text' name='inputName' onChange={this.handleUserChange} placeholder='Username' ></input>
+            <label htmlFor='inputName'>username: </label><input type='text' name='inputName' onChange={this.handleUserChange} placeholder='Username' ></input>
             {this.state.passErr && <p>Your Password is incorrect :(</p>}
 
-            <label for='password'>password:</label><input type='password' name='password' onChange={this.handlePasswDChange} placeholder='Password' ></input>
+            <label htmlFor='password'>password:</label><input type='password' name='password' onChange={this.handlePasswDChange} placeholder='Password' ></input>
             <button onClick={this.handleSubmit}>Submit</button>
         </form>)
 
