@@ -2,40 +2,34 @@ import React, { Component } from 'react';
 
 class ArticlePostComment extends Component {
     state = {
-
+        author: '',
+        tempBody: ''
     }
 
     componentDidMount() {
         const { username } = this.props
-        this.setState({ input: { author: username } })
+        this.setState({ author: username })
     }
 
     handleBodyChange = (e) => {
         e.preventDefault()
-        const commentBody = e.target.value
-        this.setState((prevState, value) => ({
-            input: {
-                author: prevState.input.author,
-                body: commentBody
-            }
-        }));
+        this.setState({ tempBody: e.target.value });
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
         const { handlePost } = this.props
-        handlePost(this.state.input)
-        this.setState({
-            input: {
-                author: '',
-                body: '',
-            }
-        })
+        const input = {
+            body: this.state.tempBody,
+            author: this.state.author
+        }
+        handlePost(input)
+        this.setState({ author: '', tempBody: '' })
     }
 
     render() {
         return (<form>
-            <input type='text' defaultValue='Comment Body' onChange={this.handleBodyChange}></input>
+            <input type='text' placeholder='Comment Body' value={this.state.tempBody} onChange={this.handleBodyChange}></input>
             <button type='submit' onClick={this.handleSubmit}>Add</button>
         </form>)
     }
