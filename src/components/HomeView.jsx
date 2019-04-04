@@ -3,9 +3,6 @@ import { fetchAllArticles } from '../db/api'
 import HomeViewArticle from './HomeViewArticle';
 import { Erroneous } from './Erroneous';
 
-
-
-
 class HomeView extends Component {
 
     state = {
@@ -20,7 +17,7 @@ class HomeView extends Component {
     }
 
     getArticles = () => {
-        fetchAllArticles()
+        fetchAllArticles(this.props.topics)
             .then(articlesList => {
                 this.setState({ articlesList, loading: false })
             })

@@ -26,6 +26,7 @@ class App extends Component {
         </nav>
         <Router className='App-main-route'  >
           <Homeview path='/' />
+          <Homeview path='/topics/:topic' />
           <SingleArticleView username={this.state.username} path='/articles/:article_id' />
         </Router>
       </div>
