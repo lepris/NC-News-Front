@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { fetchAllArticles } from '../db/api'
 import HomeViewArticle from './HomeViewArticle';
 import { Erroneous } from './Erroneous';
+import TopicsPanel from './TopicsPanel';
+
 
 class HomeView extends Component {
 
@@ -13,11 +15,17 @@ class HomeView extends Component {
     }
 
     componentDidMount() {
-        this.getArticles()
+        this.getArticles(this.props.topic)
     }
 
-    getArticles = () => {
-        fetchAllArticles(this.props.topic)
+    reloadArticlesWithTopic = (t) => {
+        this.getArticles(t)
+    }
+
+
+
+    getArticles = (topic) => {
+        fetchAllArticles(topic)
             .then(articlesList => {
                 this.setState({ articlesList, loading: false })
             })
@@ -29,7 +37,8 @@ class HomeView extends Component {
         if (this.state.loading) return <div>Loading...</div>
 
         return (
-            <>
+            <>  <TopicsPanel reload={this.reloadArticlesWithTopic} chooseTopic={this.props.chooseTopic} />
+
                 <h1>Articles section</h1>
                 <div>
                     {this.state.articlesList.map((art, ind) => {

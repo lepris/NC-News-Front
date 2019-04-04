@@ -7,16 +7,21 @@ import LoginBox from './components/LoginBox';
 
 class App extends Component {
   state = {
-    username: ''
+    username: '',
+    topic: '',
   }
   userLogin = (username) => {
     this.setState({ username })
+  }
+  chooseTopic = (topic) => {
+    this.setState({ topic })
   }
 
   render() {
     return (
       <div className="App">
         <nav>
+          <h3>current topic: {this.state.topic}</h3>
           <Link to='/'>Home View</Link>
           {!this.state.username && <LoginBox userLogin={this.userLogin} />}
           {this.state.username && <h5>Logged in as {this.state.username}</h5>}
@@ -25,8 +30,8 @@ class App extends Component {
 
         </nav>
         <Router className='App-main-route'  >
-          <Homeview path='/' />
-          <Homeview path='/topics/:topic' />
+          <Homeview chooseTopic={this.chooseTopic} path='/' />
+          <Homeview chooseTopic={this.chooseTopic} path='/topics/:topic' />
           <SingleArticleView username={this.state.username} path='/articles/:article_id' />
         </Router>
       </div>
