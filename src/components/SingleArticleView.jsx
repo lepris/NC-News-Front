@@ -8,6 +8,7 @@ import CommentsList from './CommentsList';
 class SingleArticleView extends Component {
     state = {
         article: {},
+        loading: true
     }
 
     componentDidMount() {
@@ -16,11 +17,11 @@ class SingleArticleView extends Component {
 
     getArticleById = () => {
         fetchArticleById(this.props.article_id)
-            .then(article => this.setState({ article }))
+            .then(article => this.setState({ article, loading: false }))
     }
 
     render() {
-
+        if (this.state.loading) return <p>Loading...</p>
         return (<>
             <ArticleComponent art={this.state.article} />
             {this.state.article.article_id && <CommentsList username={this.props.username} artId={this.state.article.article_id} />}
