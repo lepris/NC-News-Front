@@ -14,9 +14,10 @@ export const ArticleComponent = ({ art }) => {
 
     return (<>
         {art.author && <ArticleAuthor username={art.author} />}
-        <span>created at: {`${date} / ${month} / ${year}`}</span>
+
 
         <h1>{art.title}</h1>
+        <p>created at:<date> {`${date} / ${month} / ${year}`}</date></p>
         <div>{art.body}</div>
 
     </>)
