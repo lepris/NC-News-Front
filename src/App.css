@@ -71,9 +71,9 @@ button:hover{
 }
 
 
-
 input{
   padding: 0.9em 0.9em 0.9em 0.9em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
   border-radius: 0.25em;
   border: 1px solid #b8ae58;
 }

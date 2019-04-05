@@ -7,12 +7,12 @@
     background: #eee;
 }
 
-form{
+.form_login{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-label{
+.label_login{
     display: flex;
     margin: 0.5em 0.5em 0.5em 0.5em;
 }
@@ -20,7 +20,7 @@ label{
 
 @media only screen and (max-width: 768px) {
 
-form{
+.form_login{
     display: flex;
     flex-direction: column;
     width: 100vw;

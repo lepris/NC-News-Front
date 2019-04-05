@@ -4,6 +4,7 @@ import { Router, Link } from '@reach/router'
 import Homeview from './components/HomeView'
 import SingleArticleView from './components/SingleArticleView';
 import LoginBox from './components/LoginBox';
+import AddArticle from './components/AddArticle';
 
 class App extends Component {
   state = {
@@ -22,14 +23,16 @@ class App extends Component {
       <div className="App">
         <nav>
 
-          <Link to='/'>Home View</Link>
+          <Link to='/'><button>Home View</button></Link>
           {!this.state.username && <LoginBox userLogin={this.userLogin} />}
-          {this.state.username && <h5>Logged in as {this.state.username}</h5>}
+          {this.state.username && <h5>Logged in as {this.state.username}  <Link to='/articles/add'> <i class="fas fa-pencil-alt"></i>Add Article</Link></h5>}
+
 
 
 
         </nav>
         <Router className='App-main-route'  >
+          <AddArticle username={this.state.username} path='/articles/add' />
           <Homeview chooseTopic={this.chooseTopic} path='/' />
           <Homeview chooseTopic={this.chooseTopic} path='/topics/:topic' />
           <SingleArticleView username={this.state.username} path='/articles/:article_id' />

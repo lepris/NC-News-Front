@@ -4,7 +4,6 @@ import HomeViewArticle from './HomeViewArticle';
 import { Erroneous } from './Erroneous';
 import TopicsPanel from './TopicsPanel';
 
-
 class HomeView extends Component {
 
     state = {
@@ -22,8 +21,6 @@ class HomeView extends Component {
         this.getArticles(t)
     }
 
-
-
     getArticles = (topic) => {
         fetchAllArticles(topic)
             .then(articlesList => {
@@ -38,7 +35,7 @@ class HomeView extends Component {
 
         return (
             <>  <TopicsPanel reload={this.reloadArticlesWithTopic} chooseTopic={this.props.chooseTopic} />
-                <h1>{this.props.topic} articles section</h1>
+                <h1>{this.props.topic || 'all'} articles section</h1>
                 <div>
                     {this.state.articlesList.map((art, ind) => {
                         return <HomeViewArticle key={ind} article={art} />
