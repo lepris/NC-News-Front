@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-// import { fetchArticleById } from '../db/api'
 
 class HomeViewArticle extends Component {
 
@@ -10,13 +9,24 @@ class HomeViewArticle extends Component {
 
     render() {
         const art = this.props.article;
-        return (<>
-            <h4>{art.title}</h4>
-            <h6>{art.author}</h6>
-            <span className='topic'>{art.topic}</span>
-            <h6>votes: {art.votes} | comments: {art.comment_count}</h6>
+        const createdWhen = new Date(art.created_at)
 
-            <Link to={`/articles/` + art.article_id}><button className='button_small'>read more</button></Link>
+        const date = createdWhen.getDate()
+        const month = createdWhen.getMonth()
+        const year = createdWhen.getFullYear()
+
+        return (<>
+            <Link class='article-lis-title' to={`/articles/` + art.article_id}><h2>{art.title}</h2></Link>
+
+            <p className='articles_lis_info'>
+                <Link className='article_lis_topic' to={`topics/${art.topic}`}>topics/{art.topic}</Link>
+                <i class="fas fa-user-tag"> </i>{art.author}
+                <i class="fas fa-thumbs-up"></i> {art.votes}
+                <i class="fas fa-comments"></i> {art.comment_count}
+                <i class="fas fa-calendar-day"></i> {`${date} / ${month} / ${year}`}
+            </p>
+
+            <Link to={`/articles/` + art.article_id}><button className='button_small vote'><i class="fas fa-book-open"></i>read more</button></Link>
         </>)
 
 

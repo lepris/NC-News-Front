@@ -34,7 +34,7 @@ class CommentsList extends Component {
             {this.props.username.length > 2 ?
                 <ArticlePostComment username={this.props.username} handlePost={this.handlePost} />
                 :
-                <p>Please Log in to add comments</p>
+                <p className='info_message'><i class="fas fa-info-circle"></i>Please Log in to add comments</p>
             }
             {this.state.comments.length > 0 ?
                 this.state.comments.map(com => {

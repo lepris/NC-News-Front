@@ -1,12 +1,13 @@
 .article_author_container {
-  border: 1px solid #aaa;
+  
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  padding: 1em 0em 0em 0em;
   
 }
 .avatar_big {
-  border: 1px solid #bbb;
+ 
   
   display: flex;
   justify-content: flex-end;
@@ -19,10 +20,10 @@
   
 }
 .article_author_name {
-  font-size: 1.5em;
-  padding-left: 1em;
+  font-size: 1em;
+  padding: 0em 1em 0em 1em;
   color: rgb(24, 24, 24);
 
-  border: 1px solid #ccc;
+ 
   flex-grow: 0;
 }

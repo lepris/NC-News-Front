@@ -1,0 +1,16 @@
+.vote  {
+    background: #fff; 
+    color:  #b8ae58;
+    font-weight: 600;
+    font-size: 0.em;
+    padding: 0.5em 0.5em 0em 0.9em;
+    /* border: 1px solid #e9df89; */
+}
+
+.vote:hover{
+    background: #fff; 
+    color:  #999146;
+}
+.votes_number{
+    color: #b8ae58;
+}
