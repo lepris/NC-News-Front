@@ -16,7 +16,7 @@ class HomeViewArticle extends Component {
             <span className='topic'>{art.topic}</span>
             <h6>votes: {art.votes} | comments: {art.comment_count}</h6>
 
-            <button><Link to={`/articles/` + art.article_id}> read more</Link></button>
+            <Link to={`/articles/` + art.article_id}><button className='button_small'>read more</button></Link>
         </>)
 
 

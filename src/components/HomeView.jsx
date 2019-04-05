@@ -38,7 +38,6 @@ class HomeView extends Component {
 
         return (
             <>  <TopicsPanel reload={this.reloadArticlesWithTopic} chooseTopic={this.props.chooseTopic} />
-
                 <h1>Articles section</h1>
                 <div>
                     {this.state.articlesList.map((art, ind) => {

@@ -17,6 +17,7 @@ class TopicsPanel extends Component {
     render() {
         if (this.state.loading) return <p>Loading...</p>
         return (<>
+
             {this.state.topics.map(topic => {
                 return <TopicPanelButton chooseTopic={this.props.chooseTopic} reload={this.props.reload} topic={topic} />
             })

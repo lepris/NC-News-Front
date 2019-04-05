@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <h3>current topic: {this.state.topic}</h3>
+
           <Link to='/'>Home View</Link>
           {!this.state.username && <LoginBox userLogin={this.userLogin} />}
           {this.state.username && <h5>Logged in as {this.state.username}</h5>}
