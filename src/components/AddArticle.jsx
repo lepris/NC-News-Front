@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { fetchAllTopics } from '../db/api'
+import { fetchAllTopics, addTopic } from '../db/api'
 
 class AddArticle extends Component {
     state = {
         topics: [],
         newTopic: false,
+        topicData: {
+            slug: '',
+            description: '',
+        }
     }
     getTopics = () => {
         fetchAllTopics()
@@ -20,10 +24,23 @@ class AddArticle extends Component {
         if (condition === 'Add New') this.setState({ newTopic: true })
         else this.setState({ topic: condition, newTopic: false })
     }
-
+    handleTopicDataSlug = (e) => {
+        e.preventDefault()
+        const input = e.target.value;
+        this.setState({ topicData: { slug: input } })
+    }
+    handleTopicDataDescription = (e) => {
+        e.preventDefault()
+        const input = e.target.value;
+        this.setState({ topicData: { description: input } })
+    }
+    handleAddTopic = () => {
+        addTopic(this.state.input)
+            .then(this.getTopics())
+    }
     render() {
         return (
-            <form>
+            <form className='form_new_article'>
                 <h3>Lets add an article</h3>
                 <fieldset>
                     <h4>Topic:</h4>
@@ -41,10 +58,9 @@ class AddArticle extends Component {
                 {this.state.newTopic &&
                     <fieldset>
                         <h4>Add New Topic</h4>
-                        <input type='text' placeholder='topic name'></input>
-                        <input type='text' placeholder='topic description'></input>
-                        <button type='submit' className='vote'>Submit new topic</button>
-
+                        <input type='text' onChange={this.handleTopicDataSlug} placeholder='topic name'></input>
+                        <input type='text' onChange={this.handleTopicDataDescription} placeholder='topic description'></input>
+                        <button type='submit' onClick={this.handleAddTopic} className='vote'>Submit new topic</button>
                     </fieldset>
                 }
 

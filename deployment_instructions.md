@@ -27,7 +27,7 @@ Take a look inside - but don't change anything.
 ## Create a Netlify Account
 
 ## Install Netfify's CLI
-
+    
 `npm install netlify-cli -g`
 
 ## Deploy a Draft Version

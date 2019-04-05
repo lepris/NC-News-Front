@@ -18,8 +18,8 @@ class TopicsPanel extends Component {
         if (this.state.loading) return <p>Loading...</p>
         return (<>
 
-            {this.state.topics.map(topic => {
-                return <TopicPanelButton chooseTopic={this.props.chooseTopic} reload={this.props.reload} topic={topic} />
+            {this.state.topics.map((topic, ind) => {
+                return <TopicPanelButton key={ind} chooseTopic={this.props.chooseTopic} reload={this.props.reload} topic={topic} />
             })
             }
         </>)

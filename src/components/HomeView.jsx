@@ -24,18 +24,20 @@ class HomeView extends Component {
     getArticles = (topic) => {
         fetchAllArticles(topic)
             .then(articlesList => {
-                this.setState({ articlesList, loading: false })
+                if (articlesList) this.setState({ articlesList, loading: false })
+                else this.setState({ err: true, errMSG: 'No articles found' })
             })
             .catch(err => this.setState({ err: true, errMSG: err.message }))
     }
 
     render() {
-        if (this.state.err) return <Erroneous message={this.state.errMSG} />
+
         if (this.state.loading) return <div>Loading...</div>
+        if (this.state.err) return <Erroneous message={this.state.errMSG} chooseTopic={this.props.chooseTopic} />
 
         return (
             <>  <TopicsPanel reload={this.reloadArticlesWithTopic} chooseTopic={this.props.chooseTopic} />
-                <h1>{this.props.topic || 'all'} articles section</h1>
+                <h1>{this.props.topic} articles section</h1>
                 <div>
                     {this.state.articlesList.map((art, ind) => {
                         return <HomeViewArticle key={ind} article={art} />

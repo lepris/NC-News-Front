@@ -1,6 +1,8 @@
 import React from 'react';
 import errorIllustration from '../db/img/error.jpg';
 import './errors.css';
+import { Link } from '@reach/router';
+
 
 export const Erroneous = ({ message }) => {
     return (
@@ -19,6 +21,7 @@ export const Erroneous = ({ message }) => {
                 <p>Don't grumble,</p>
                 <p>Give a whistle</p>
                 <p><small>-Monthy Python</small></p>
+                <Link to='/topics/coding'>Escape</Link>
             </div>
         </div >
     )
