@@ -42,6 +42,12 @@ export const fetchAllTopics = async () => {
     return topics
 }
 
+export const addTopic = async (input) => {
+    const { data: { topic } } = await axios
+        .post(`${Base_Url}/topic`, input)
+    return topic
+}
+
 export const commentVoteUp = async (comId) => {
     console.log('comment votes up')
     const { data: { votes } } = await axios
