@@ -36,6 +36,12 @@ export const fetchAllCommentsByArticleId = async (artId) => {
     return comments
 }
 
+export const fetchAllTopics = async () => {
+    const { data: { topics } } = await axios
+        .get(`${Base_Url}/topics`)
+    return topics
+}
+
 export const commentVoteUp = async (comId) => {
     console.log('comment votes up')
     const { data: { votes } } = await axios
