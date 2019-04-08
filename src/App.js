@@ -15,9 +15,7 @@ class App extends Component {
   userLogin = (username) => {
     this.setState({ username })
   }
-  chooseTopic = (topic) => {
-    this.setState({ topic })
-  }
+
 
   render() {
     return (
@@ -32,9 +30,9 @@ class App extends Component {
 
         <Router className='App-main-route'  >
           <AddArticle username={this.state.username} path='/articles/add' />
-          <Homeview chooseTopic={this.chooseTopic} path='/' />
+          <Homeview path='/' />
           <Erroneous path='/404' />
-          <Homeview chooseTopic={this.chooseTopic} path='/topics/:topic' />
+          <Homeview topic={this.props.topic} path='/topics/:topic' />
           <SingleArticleView username={this.state.username} path='/articles/:article_id' />
         </Router>
       </div>

@@ -11,18 +11,35 @@ class HomeView extends Component {
         loading: true,
         err: false,
         errMSG: '',
+        topic: ''
     }
 
-    componentDidMount() {
-        this.getArticles(this.props.topic)
+    componentDidMount = () => {
+        this.setState({ topic: this.props.topic })
+        this.getArticles()
     }
 
-    reloadArticlesWithTopic = (t) => {
-        this.getArticles(t)
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.topic !== this.state.topic) {
+            let topic = this.state.topic
+            this.setState({ topic });
+            this.getArticles();
+        }
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.topic !== prevState.topic) {
+
+            return { topic: nextProps.topic };
+        }
+        else return null;
     }
 
-    getArticles = (topic) => {
-        fetchAllArticles(topic)
+
+
+    getArticles = () => {
+
+        fetchAllArticles(this.props.topic)
             .then(articlesList => {
                 if (articlesList) this.setState({ articlesList, loading: false })
                 else this.setState({ err: true, errMSG: 'No articles found' })
@@ -33,19 +50,23 @@ class HomeView extends Component {
     render() {
 
         if (this.state.loading) return <div>Loading...</div>
-        if (this.state.err) return <Erroneous message={this.state.errMSG} chooseTopic={this.props.chooseTopic} />
+        if (this.state.err) return <Erroneous message={this.state.errMSG} />
 
-        return (
-            <>  <TopicsPanel reload={this.reloadArticlesWithTopic} chooseTopic={this.props.chooseTopic} />
-                <h1>{this.props.topic} articles section</h1>
-                <div>
-                    {this.state.articlesList.map((art, ind) => {
-                        return <HomeViewArticle key={ind} article={art} />
-                    })}
+        return (<> <TopicsPanel onClick={this.componentDidUpdate} />
+            <h1>Props: {this.props.topic} articles section</h1>
+            <h1>State: {this.state.topic} articles section</h1>
+            <div>
+                {this.state.articlesList.map((art, ind) => {
+                    return <HomeViewArticle key={ind} article={art} />
+                })}
 
-                </div>
-            </>
+            </div>
+        </>
+
         )
+
+
+
     }
 
 
