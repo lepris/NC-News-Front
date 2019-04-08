@@ -31,8 +31,9 @@ class App extends Component {
         <Router className='App-main-route'  >
           <AddArticle username={this.state.username} path='/articles/add' />
           <Homeview path='/' />
-          <Erroneous path='/404' />
+          <Erroneous path='/*' />
           <Homeview topic={this.props.topic} path='/topics/:topic' />
+
           <SingleArticleView username={this.state.username} path='/articles/:article_id' />
         </Router>
       </div>

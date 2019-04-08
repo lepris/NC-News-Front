@@ -21,7 +21,7 @@ export const Erroneous = ({ message }) => {
                 <p>Don't grumble,</p>
                 <p>Give a whistle</p>
                 <p><small>-Monthy Python</small></p>
-                <Link to='/topics/coding'>Escape</Link>
+
             </div>
         </div >
     )
