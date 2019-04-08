@@ -22,6 +22,13 @@ export const fetchArticleById = async (id) => {
     return data
 }
 
+export const postArticle = async (input) => {
+    console.log('Posting article')
+    const { data: { article } } = await axios
+        .post(`${Base_Url}/articles`, input)
+    return article
+}
+
 export const fetchUserByUsername = async (username) => {
     console.log('Hello from fetchUser', username)
     const { data: { userData } } = await axios
@@ -44,7 +51,7 @@ export const fetchAllTopics = async () => {
 
 export const addTopic = async (input) => {
     const { data: { topic } } = await axios
-        .post(`${Base_Url}/topic`, input)
+        .post(`${Base_Url}/topics`, input)
     return topic
 }
 
