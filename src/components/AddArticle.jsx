@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { fetchAllTopics, addTopic, postArticle } from '../db/api'
-
+import './AddArticle.css'
+import { navigate } from '@reach/router'
 class AddArticle extends Component {
     state = {
         topics: [],
+        stepOne: true,
         newTopic: false,
         selectedTopic: '',
         submittedTopic: false,
@@ -21,14 +23,13 @@ class AddArticle extends Component {
         e.preventDefault()
         const condition = e.target.value;
         if (condition === 'Add New') this.setState({ newTopic: true })
-        else this.setState({ topic: condition, newTopic: false })
+        else this.setState({ topic: condition, newTopic: false, newArticle: true, stepOne: false })
     }
-    handleChangeTopic = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
-    }
+
     handleAddTopic = (e) => {
         e.preventDefault()
         const inputTopic = { slug: this.state.topicSlug, description: this.state.topicDescription }
+
         addTopic(inputTopic)
             .then(data => {
                 console.log(data)
@@ -38,23 +39,44 @@ class AddArticle extends Component {
             .catch(err => console.log(err))
     }
 
+    handleChange = (e) => {
+        const { name, value } = e.target
+        this.setState({ [name]: value })
+    }
+
+    handlePreview = (e) => {
+        e.preventDefault()
+        this.setState({ newArticle: false, preview: true })
+    }
 
     handleArticleSubmit = (e) => {
         e.preventDefault()
-        const topic = this.state.topic;
-        this.setState({ articleData: { topic } })
-        postArticle(this.state.articleData)
-            .then(newArticle => this.setState({ newArticle, submitted: true }))
-            .catch(err => console.log(err))
+        const articleData = {
+            title: this.state.previewArticleTitle,
+            topic: this.state.topic,
+            body: this.state.previewArticleBody,
+            author: this.props.username,
+        }
 
+        postArticle(articleData)
+            .then(article => {
+                if (article) {
+
+                    navigate(`/articles/${article.article_id}`)
+
+                }
+                else { this.setState({ postErr: true }) }
+            })
+            .catch(err => console.log(err))
     }
 
 
     render() {
         return (
-            <form className='form_new_article'>
+            <form className='form_new_article' >
                 <h3>Lets add an article</h3>
-                <fieldset >
+                {this.state.stepOne && <fieldset className='fieldset_new_article'>
+
                     <h4>Topic:</h4>
                     <select onChange={this.handleTopicSelect} value={this.state.topic}>
                         <option >Select your topic</option>
@@ -63,31 +85,44 @@ class AddArticle extends Component {
                             return <option key={ind} value={topic.slug}>{topic.slug}</option>
                         })}
                     </select>
-                </fieldset>
+                </fieldset>}
 
                 <hr></hr>
                 {this.state.newTopic &&
-                    <fieldset >
+                    <fieldset className='fieldset_new_article'>
                         <h4>Add New Topic</h4>
-                        <input type='text' onChange={this.handleChangeTopic} name='topicSlug' placeholder='topic name'></input>
-                        <input type='text' onChange={this.handleChangeTopic} name='topicDescription' placeholder='topic description'></input>
-                        <button type='submit' onClick={this.handleAddTopic} className='vote'>Submit new topic</button>
+                        <input type='text' onChange={this.handleChange} name='topicSlug' placeholder='topic name'></input>
+                        <input type='text' onChange={this.handleChange} name='topicDescription' placeholder='topic description'></input>
+                        <button type='submit' onclick={this.handleAddTopic} className='vote'>Add Topic</button>
                     </fieldset>
                 }
 
-                {this.state.topic && <fieldset >
-                    <h4>Article</h4>
-                    <input type='text' onChange={this.handleChangeTitle} placeholder='article title'></input>
-                    <textarea type='textfield' onChange={this.handleChangeBody} placeholder='article body'></textarea>
-                    <button type='submit' onClick={this.handleArticleSubmit} className='vote'>Submit new article</button>
+                {
+                    this.state.newArticle && <fieldset className='fieldset_new_article'>
+                        <h4>Article</h4>
+                        <p>topics/{this.state.topic}</p>
+                        <label htmlFor='articleTitle'>Title</label>
 
-                </fieldset>}
-                {this.state.newArticle && <fieldset >
-                    <input value={this.state.newArticle.title}></input>
-                    <input value={this.state.newArticle.body}></input>
-                </fieldset>}
+                        <input type='text' name='previewArticleTitle' onChange={this.handleChange} placeholder='artcle Title'></input>
+                        <label htmlFor='articleBody'>Body</label>
+                        <textarea name='previewArticleBody' onChange={this.handleChange} placeholder='article body'></textarea>
 
-            </form>)
+                        <button type='submit' onClick={this.handlePreview} className='vote'>Preview</button>
+                    </fieldset>
+                }
+                {
+                    this.state.preview && <fieldset className='fieldset_new_article'>
+                        <h4 >{this.state.previewArticleTitle}</h4>
+                        <p >{this.state.previewArticleBody}</p>
+                        <button type='submit' onClick={this.handleArticleSubmit}>Submit</button>
+
+                    </fieldset>
+
+                }
+                {this.state.thankU && <h4>thanks for the article</h4>}
+                {this.state.postErr && <h1>big fat error</h1>}
+
+            </form >)
     }
 }
 export default AddArticle
