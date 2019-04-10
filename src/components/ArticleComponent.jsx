@@ -17,7 +17,7 @@ export const ArticleComponent = ({ art }) => {
 
 
         <h1>{art.title}</h1>
-        <p>created at:<date> {`${date} / ${month} / ${year}`}</date></p>
+        <p>created at:<span> {`${date} / ${month} / ${year}`}</span></p>
         <div>{art.body}</div>
 
     </>)

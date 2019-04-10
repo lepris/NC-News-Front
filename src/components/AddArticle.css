@@ -1,3 +1,9 @@
 .form_new_article {
     border-radius: 4em;
+      
+}
+
+.fieldset_new_article {
+display: flex;
+justify-items: center;      
 }
