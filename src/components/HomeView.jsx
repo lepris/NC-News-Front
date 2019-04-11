@@ -12,7 +12,7 @@ class HomeView extends Component {
     errMSG: "",
     howMany: 10,
     page: 1,
-    pages: [1]
+    pages: []
   };
 
   componentDidMount = () => {
@@ -23,28 +23,19 @@ class HomeView extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic) {
       this.getArticles();
-
       this.setState({ errMSG: "", page: 1 });
     }
   }
 
   countPages = () => {
-    let counter = 0;
-    let currentPage = 0;
+    const totalPages = this.state.articlesList.length;
+    let newTotalPages = Math.ceil(totalPages / this.state.howMany);
+    let newPagesArray = []
 
-    let howMuch = this.state.howMany;
-    let length = this.state.articlesList.length;
+    for (let i = 1; i <= newTotalPages; i++) { newPagesArray.push(i) }
+    console.log('this.COUNTPAGES() ', newTotalPages, 'new pages array', newPagesArray)
 
-    const pagesCount = this.state.articlesList.reduce((totalCount, article) => {
-      ++counter;
-      if (counter % howMuch === 0) return totalCount.concat(++currentPage);
-      if (counter > length - howMuch && counter < length - howMuch + 2)
-        return totalCount.concat(++currentPage);
-      else {
-        return totalCount;
-      }
-    }, []);
-    this.setState({ pages: pagesCount });
+    this.setState({ pages: newPagesArray });
   };
 
   handleChange = e => {
@@ -56,13 +47,28 @@ class HomeView extends Component {
     this.setState({ page: value })
     this.countPages()
   }
+
   handleHowManyChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    this.setState({ [name]: value });
-    this.getArticles()
-    this.countPages();
+    const { page, howMany, articlesList } = this.state;
+
+    const soFar = (+page - 1) * +howMany;
+    let newPage = Math.ceil(soFar / value)
+
+    const totalArticles = articlesList.length;
+    let newTotalPages = Math.ceil(totalArticles / value)
+    let newPagesArray = []
+
+    for (let i = 1; i <= newTotalPages; i++) { newPagesArray.push(i) }
+    console.log('new total pages', newTotalPages, 'new pages array', newPagesArray)
+
+    // changed default to 1 to prevent page 0
+    if (newPage <= 0) newPage = 1;
+
+    this.setState({ [name]: value, page: newPage, pages: newPagesArray });
   }
+
   getArticles = () => {
     fetchAllArticles(this.props.topic)
       .then(articlesList => {
@@ -78,8 +84,8 @@ class HomeView extends Component {
     if (this.state.loading) return <div>Loading...</div>;
     if (!this.state.articlesList.length) return <p>no articles</p>;
     const { page, howMany } = this.state;
-    const begin = (page - 1) * +howMany;
-    const end = ((page - 1) * +howMany) + +howMany;
+    const begin = page > 1 ? (+page - 1) * +howMany : 0;
+    const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
     console.log(begin, end)
 
     return (
@@ -89,11 +95,11 @@ class HomeView extends Component {
 
         <div>
           <span>
-            <Pagination
+            {this.state.pages.length > 1 && <Pagination
               name="page"
               pages={this.state.pages}
               handlePageChange={this.handlePageChange}
-            />
+            />}
           </span>
 
           <span>results per page</span>
@@ -109,7 +115,6 @@ class HomeView extends Component {
         </div>
         <div>
           {this.state.articlesList
-
             .slice(begin, end)
             .map((art, ind) => {
               return <HomeViewArticle key={ind} index={ind} article={art} />;
