@@ -17,7 +17,6 @@ class HomeView extends Component {
 
   componentDidMount = () => {
     this.getArticles();
-
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -26,17 +25,6 @@ class HomeView extends Component {
       this.setState({ errMSG: "", page: 1 });
     }
   }
-
-  countPages = () => {
-    const totalPages = this.state.articlesList.length;
-    let newTotalPages = Math.ceil(totalPages / this.state.howMany);
-    let newPagesArray = []
-
-    for (let i = 1; i <= newTotalPages; i++) { newPagesArray.push(i) }
-    console.log('this.COUNTPAGES() ', newTotalPages, 'new pages array', newPagesArray)
-
-    this.setState({ pages: newPagesArray });
-  };
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -48,24 +36,27 @@ class HomeView extends Component {
     this.countPages()
   }
 
+  makePagesArray = (resultsToDisplay) => {
+    const totalArticles = this.state.articlesList.length;
+    let newTotalPages = Math.ceil(totalArticles / resultsToDisplay);
+    let newPagesArray = []
+    for (let i = 1; i <= newTotalPages; i++) { newPagesArray.push(i) }
+    return newPagesArray
+  }
+
+  countPages = () => {
+    const newPagesArray = this.makePagesArray(this.state.howMany);
+    this.setState({ pages: newPagesArray });
+  };
+
   handleHowManyChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    const { page, howMany, articlesList } = this.state;
+    const { page, howMany } = this.state;
 
     const soFar = (+page - 1) * +howMany;
-    let newPage = Math.ceil(soFar / value)
-
-    const totalArticles = articlesList.length;
-    let newTotalPages = Math.ceil(totalArticles / value)
-    let newPagesArray = []
-
-    for (let i = 1; i <= newTotalPages; i++) { newPagesArray.push(i) }
-    console.log('new total pages', newTotalPages, 'new pages array', newPagesArray)
-
-    // changed default to 1 to prevent page 0
-    if (newPage <= 0) newPage = 1;
-
+    let newPage = Math.ceil(soFar / value) <= 0 ? 1 : Math.ceil(soFar / value);
+    const newPagesArray = this.makePagesArray(value)
     this.setState({ [name]: value, page: newPage, pages: newPagesArray });
   }
 
@@ -86,7 +77,6 @@ class HomeView extends Component {
     const { page, howMany } = this.state;
     const begin = page > 1 ? (+page - 1) * +howMany : 0;
     const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
-    console.log(begin, end)
 
     return (
       <>
