@@ -21,7 +21,7 @@ class TopicsPanel extends Component {
         return (<>
 
             {this.state.topics.map((topic, ind) => {
-                return <Link key={ind} to={`/topics/${topic.slug}`} ><button >{topic.description}</button></Link >
+                return <Link key={ind} to={`/topics/${topic.slug}`} ><button>{topic.description}</button></Link >
                 // <TopicPanelButton key={ind}  reload={this.props.reload} topic={topic} />
             })
             }

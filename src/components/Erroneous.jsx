@@ -1,7 +1,6 @@
 import React from 'react';
 import errorIllustration from '../db/img/error.jpg';
 import './errors.css';
-import { Link } from '@reach/router';
 
 
 export const Erroneous = ({ message }) => {

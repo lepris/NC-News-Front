@@ -7,8 +7,8 @@ class Pagination extends Component {
     e.preventDefault();
     handlePageChange(e.target.value)
     this.setState({ selected: true })
-
   }
+
   render() {
     const { pages } = this.props;
     console.log('hello from pagination', pages)
