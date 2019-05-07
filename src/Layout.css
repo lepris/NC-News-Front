@@ -1,0 +1,38 @@
+.App {
+display: flex;
+background-color: gray;
+flex-direction: column;
+}
+
+.TopPanel {
+display: flex;
+flex: 1;
+background-color: aqua;
+}
+
+.ContainerPanel {
+display: flex;
+flex: 1;
+justify-content: flex-start;
+flex-direction: row;
+}
+
+@media only screen and (max-width: 768px) {
+    .ContainerPanel {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+        flex-direction: column;
+        }
+}
+.LeftPanel {
+display: flex;
+flex: 1;
+background-color: peru;
+}
+
+.MainPanel {  
+display: flex;
+flex: 2;
+background-color: purple;
+}
