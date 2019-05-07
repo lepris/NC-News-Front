@@ -80,7 +80,7 @@ class HomeView extends Component {
 
     return (
       <>
-        <TopicsPanel />
+
         <h1>{this.props.topic || 'All'} articles section</h1>
 
         <div>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Router, Link } from '@reach/router'
-import Homeview from './components/HomeView'
-import SingleArticleView from './components/SingleArticleView';
-import LoginBox from './components/LoginBox';
-import AddArticle from './components/AddArticle';
-import { Erroneous } from './components/Erroneous';
-import TopicsPanel from './components/TopicsPanel';
+import './Layout.css'
+
+import { LeftTopicsPanel } from './components/layout/LeftTopicsPanel';
+import { TopBar } from './components/layout/TopBar'
+import { MainRouter } from './components/layout/MainRouter'
 
 class App extends Component {
   state = {
@@ -21,27 +19,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
+        <div className="TopPanel">
+          <TopBar username={this.state.username} userLogin={this.userLogin} />
+        </div>
+        <div className="ContainerPanel">
+          <div className="LeftPanel">
+            <LeftTopicsPanel />
+          </div>
+          <div className="MainPanel">
+            <MainRouter username={this.state.username} />
+          </div>
+        </div>
 
-          <Link to='/'><button>All Articles</button></Link>
-          {!this.state.username && <LoginBox userLogin={this.userLogin} />}
-          {this.state.username && <h5>Logged in as {this.state.username}
-            <Link to='/articles/add'> <i className="fas fa-pencil-alt"></i>Add Article</Link></h5>}
-        </nav>
-        <span>this new code</span>
-        <Router className='App-side-route'  >
-          <TopicsPanel path='/' />
-          <TopicsPanel path='/topics/:topic' />
-        </Router>
 
-        <Router className='App-main-route'  >
-          <AddArticle username={this.state.username} path='/articles/add' />
-          <Homeview path='/' />
-          <Erroneous path='/*' />
-          <Homeview topic={this.props.topic} path='/topics/:topic' />
-
-          <SingleArticleView username={this.state.username} path='/articles/:article_id' />
-        </Router>
       </div>
     );
   }
