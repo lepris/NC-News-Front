@@ -32,13 +32,16 @@ class ArticlePostComment extends Component {
         return (<form>
             <h3>NEW COMMENT:</h3>
 
-            <textarea type='text' placeholder='Comment Body' value={this.state.tempBody} onChange={this.handleBodyChange}></textarea>
-            {!this.state.typingErr ?
-                <span className='error_message success'> Valid comment</span>
-                :
-                <span className='error_message fail'> comment is too short :(</span>
-            }
-            <button type='submit' disabled={this.state.typingErr} onClick={this.handleSubmit}>Add</button>
+            <fieldset>
+                {!this.state.typingErr ?
+                    (this.state.tempBody && <p className='error_message success'> Valid comment</p>)
+                    :
+                    (this.state.tempBody && <p className='error_message fail'> comment is too short</p>)
+                }
+                <textarea type='text' minLength='3' placeholder='Comment Body' value={this.state.tempBody} onChange={this.handleBodyChange}></textarea>
+
+                <button type='submit' disabled={this.state.typingErr} onClick={this.handleSubmit}>Add</button>
+            </fieldset>
         </form>)
     }
 }
