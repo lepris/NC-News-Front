@@ -16,16 +16,29 @@ class TopicsPanel extends Component {
     }
 
 
-    render() {
-        if (this.state.loading) return <p>Loading...</p>
-        return (<>
 
-            {this.state.topics.map((topic, ind) => {
-                return <Link key={ind} to={`/topics/${topic.slug}`} ><button>{topic.description}</button></Link >
-                // <TopicPanelButton key={ind}  reload={this.props.reload} topic={topic} />
-            })
-            }
-        </>)
+    render() {
+        const breakpoints = {
+            desktop: 1024,
+            tablet: 840,
+        };
+
+        if (this.state.loading) { return <p>Loading...</p> }
+        else if (window.innerWidth > breakpoints.desktop) {
+            return (<>
+
+                {this.state.topics.map((topic, ind) => {
+                    return <Link key={ind} to={`/topics/${topic.slug}`} ><button>{topic.description}</button></Link >
+                })}
+            </>)
+        } else if (window.innerWidth > breakpoints.tablet && window.innerWidth < breakpoints.desktop) {
+            return (<p>Tablet View</p>)
+        } else if (window.innerWidth <= breakpoints.tablet) {
+            return (<p>Mobile View</p>)
+        }
+
+
+
     }
 }
 
