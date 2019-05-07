@@ -24,7 +24,7 @@ class App extends Component {
         </div>
         <div className="ContainerPanel">
           <div className="LeftPanel">
-            <LeftTopicsPanel />
+            <LeftTopicsPanel topic={this.state.topic} />
           </div>
           <div className="MainPanel">
             <MainRouter username={this.state.username} />
