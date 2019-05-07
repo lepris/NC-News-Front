@@ -10,6 +10,7 @@ class AddArticle extends Component {
         selectedTopic: '',
         submittedTopic: false,
     }
+
     componentDidMount() {
         this.getTopics()
     }
@@ -51,11 +52,12 @@ class AddArticle extends Component {
 
     handleArticleSubmit = (e) => {
         e.preventDefault()
+        const { username } = this.props;
         const articleData = {
             title: this.state.previewArticleTitle,
             topic: this.state.topic,
             body: this.state.previewArticleBody,
-            author: this.props.username,
+            author: username,
         }
 
         postArticle(articleData)
