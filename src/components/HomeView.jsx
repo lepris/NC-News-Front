@@ -16,6 +16,7 @@ class HomeView extends Component {
   };
 
   componentDidMount = () => {
+
     this.getArticles();
   };
 
@@ -71,6 +72,7 @@ class HomeView extends Component {
   };
 
   render() {
+    window.scrollTo(0, 0);
     if (this.state.errMSG) return <Erroneous message={this.state.errMSG} />;
     if (this.state.loading) return <div>Loading...</div>;
     if (!this.state.articlesList.length) return <p>no articles</p>;
