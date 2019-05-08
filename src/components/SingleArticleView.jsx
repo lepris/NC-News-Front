@@ -22,6 +22,8 @@ class SingleArticleView extends Component {
   };
 
   render() {
+    window.scrollTo(0, 0);
+
     if (this.state.loading) return <p>Loading...</p>;
     if (this.state.err) return <Erroneous message={this.state.err.message} />;
     return (
