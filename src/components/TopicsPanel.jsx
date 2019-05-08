@@ -33,13 +33,15 @@ class TopicsPanel extends Component {
 
         if (this.state.loading) { return <p>Loading...</p> }
         else if (window.innerWidth > breakpoints.desktop) {
-            return (<>
-
-
-                {this.state.topics.map((topic, ind) => {
-                    return <Link key={ind} to={`/topics/${topic.slug}`}><button>{topic.description}</button></Link >
-                })}
-            </>)
+            return (
+                <>
+                    <h3>Topics selection</h3>
+                    <ul>
+                        {this.state.topics.map((topic, ind) => {
+                            return <Link key={ind} to={`/topics/${topic.slug}`}><li>{topic.description}</li></Link >
+                        })}
+                    </ul>
+                </>)
         } else if (window.innerWidth > breakpoints.tablet && window.innerWidth < breakpoints.desktop) {
             return (<>
                 <p>Tablet View</p>
