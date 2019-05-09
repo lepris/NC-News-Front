@@ -1,7 +1,6 @@
 .App {
-display: flex;
+   
 background-color: gray;
-flex-direction: column;
 }
 
 .TopPanel {
@@ -15,22 +14,24 @@ background-color: aqua;
 }
 
 .ContainerPanel {
-
+overflow: visible;
 display: flex;
 flex: 1;
 justify-content: flex-start;
 flex-direction: row;
 }
 
-
 .LeftPanel {
-display: flex;
-flex: 1;
+position: sticky;
+height: 100%;
+top: 15vh; /*this adds the space for menu*/
+width: 50vh;
 background-color: peru;
 }
 
 .MainPanel {  
 display: flex;
+overflow-y: auto;
 flex: 2;
 background-color: purple;
 }

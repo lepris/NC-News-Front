@@ -3,19 +3,32 @@
         padding-top: 0vh;
     }
     .TopPanel {
-        display: flex;
         position: relative;
+
+        display: flex;
         flex: 1;
+        height: auto;
         background-color: aqua;
         }
 
-    
-    
     .ContainerPanel {
-       
         display: flex;
         flex: 1;
         justify-content: flex-start;
         flex-direction: column;
+        }
+
+    .LeftPanel {
+        position: relative;
+        display: flex;
+        flex: 1;
+        top: 0; /*this removes the space for menu*/
+        width: 100vw;
+        
+    }
+    .MainPanel {  
+        display: flex;
+        flex: 2;
+        background-color: purple;
         }
 }
