@@ -26,13 +26,12 @@ class TopicsPanel extends Component {
     }
 
     render() {
-        const breakpoints = {
-            desktop: 1024,
-            tablet: 840,
-        };
+        const { device } = this.props;
+        console.log(device)
+
 
         if (this.state.loading) { return <p>Loading...</p> }
-        else if (window.innerWidth > breakpoints.desktop) {
+        else if (device === 'desktop') {
             return (
                 <>
                     <h3>Topics selection</h3>
@@ -42,12 +41,12 @@ class TopicsPanel extends Component {
                         })}
                     </ul>
                 </>)
-        } else if (window.innerWidth > breakpoints.tablet && window.innerWidth < breakpoints.desktop) {
+        } else if (device === 'tablet') {
             return (<>
                 <p>Tablet View</p>
 
             </>)
-        } else if (window.innerWidth <= breakpoints.tablet) {
+        } else if (device === 'mobile') {
             return (<>
                 <p>Mobile View</p>
                 <button onClick={this.toggleMenu}>{this.state.isOpen ? 'Hide Topics' : 'Show Topics'}</button>

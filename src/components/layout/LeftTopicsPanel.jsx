@@ -1,14 +1,15 @@
 import React from 'react';
 import TopicsPanel from '../../components/TopicsPanel';
-import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 
-export const LeftTopicsPanel = ({ topic }) => (
+export const LeftTopicsPanel = ({ topic, device }) => (
+
     <>
-
+        {console.log('place for device Left Topic Panel', device)}
         <Router className='App-side-route'  >
-            <TopicsPanel path='/' />
-            <TopicsPanel path='/articles/:articleId' topic={topic} />
-            <TopicsPanel path='/topics/:topic' />
+            <TopicsPanel path='/' device={device} />
+            <TopicsPanel path='/articles/:articleId' device={device} topic={topic} />
+            <TopicsPanel path='/topics/:topic' device={device} />
         </Router>
     </>
 )

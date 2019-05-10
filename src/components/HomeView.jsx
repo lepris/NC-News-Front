@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { fetchAllArticles } from "../db/api";
 import HomeViewArticle from "./HomeViewArticle";
 import { Erroneous } from "./Erroneous";
-import TopicsPanel from "./TopicsPanel";
 import Pagination from "./Pagination";
 
 class HomeView extends Component {
