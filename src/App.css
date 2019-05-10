@@ -4,21 +4,21 @@
   font-weight: 400;
 }
 h1, h2, h3, h4 {
-  font-family: 'Titillium Web', sans-serif;
-    letter-spacing: 0.1em;
+  font-family: 'Patua One', cursive;
+   
 }
 h1{
   font-weight: 700;
-  color: #b8ae58;
+  color: white;
 }
 
 .article-lis-title {
   text-decoration: none;
-  color: #b8ae58;
+  color: white
 }
 
 .article_lis_topic{
-    color: #9e9649;
+    color: white;
 }
 .articles_lis_info{
   font-size: 0.8em;
