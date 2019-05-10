@@ -1,0 +1,43 @@
+.TopMenuContainer {
+    display: flex;
+    flex: 1;
+    min-height: 150;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+   
+}
+
+.TopButton {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: solid 2px yellow;
+    justify-content: center;
+    align-content: baseline;   
+    text-decoration: none;
+    padding: 0.25em;
+
+}
+
+.bigIcon {
+    font-size: 2em;
+    padding-bottom: 0.25em;
+}
+
+.TopMenuLogo {
+    align-self: center;
+}
+
+@media only screen and (max-width: 768px) {
+   .TopButtonDescription {
+       visibility: hidden;
+       text-align: center;
+       font-size: 0em;
+   }
+
+   .TopMenuLogo {
+       max-width: 6em;
+   }
+
+}

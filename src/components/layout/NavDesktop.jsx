@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import LoginBox from '../LoginBox';
 import logo from '../../img/logo.png';
+import './NavDesktop.css'
 
-export const NavDesktop = ({ username, userLogin }) => (
+
+export const NavDesktop = ({ username }) => (
     <div>
-        <nav >
+        <nav className="TopMenuContainer" >
 
-            <img src={logo} alt='logo' width='147px' height='94px' />
-            <Link to='/'><button>All Articles</button></Link>
-            {!username && <LoginBox userLogin={userLogin} />}
+
+            <Link className='TopButton' to='/'><img className='TopMenuLogo' src={logo} alt='logo' /></Link>
+            <Link className='TopButton Patua' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
+            <Link className='TopButton Patua' to='/articles/add'> <i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>User Profile</span></Link>
             {username && <>
                 <h5>Logged in as {username}</h5>
-                <Link to='/articles/add'> <i className="fas fa-pencil-alt"></i>Add Article</Link>
+
             </>}
         </nav>
     </div>
@@ -20,4 +22,3 @@ export const NavDesktop = ({ username, userLogin }) => (
 
 
 
-{/*  */ }
