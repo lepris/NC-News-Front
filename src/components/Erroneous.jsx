@@ -7,7 +7,7 @@ export const Erroneous = ({ message }) => {
     return (
         <div className='container'>
             <div className='image'>
-                <img alt='Life of Brian' src={errorIllustration} />
+                <img height='50vh' alt='Life of Brian' src={errorIllustration} />
             </div>
             <div className='text_part'>
                 <h2>Big Fat Error</h2>
