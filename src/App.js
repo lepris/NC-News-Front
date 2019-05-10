@@ -4,8 +4,8 @@ import './Layout.css';
 import './MobileLayout.css';
 
 import { LeftTopicsPanel } from './components/layout/LeftTopicsPanel';
-import { TopBar } from './components/layout/TopBar'
-import { MainRouter } from './components/layout/MainRouter'
+import { TopBar } from './components/layout/TopBar';
+import { MainRouter } from './components/layout/MainRouter';
 
 class App extends Component {
 
@@ -21,7 +21,7 @@ class App extends Component {
   handleWindowResize = () => {
     const breakpoints = {
       desktop: 1024,
-      tablet: 840,
+      tablet: 768,
     }
     if (window.innerWidth > breakpoints.desktop) {
       this.setState({ device: 'desktop' })
@@ -56,6 +56,8 @@ class App extends Component {
         <div className="ContainerPanel">
 
           <div className="LeftPanel">
+
+
             <LeftTopicsPanel topic={this.state.topic} device={this.state.device} />
           </div>
           <div className="MainPanel">
