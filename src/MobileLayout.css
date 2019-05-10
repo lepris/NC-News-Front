@@ -18,8 +18,8 @@
         flex-direction: column;
         }
 
-    .LeftPanel {
-        position: relative;
+        .LeftPanel {
+            position: relative;
         display: flex;
         flex: 1;
         top: 0; /*this removes the space for menu*/

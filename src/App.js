@@ -8,20 +8,47 @@ import { TopBar } from './components/layout/TopBar'
 import { MainRouter } from './components/layout/MainRouter'
 
 class App extends Component {
+
   state = {
     username: '',
     topic: '',
+    device: 'desktop',
   }
   userLogin = (username) => {
     this.setState({ username })
   }
 
+  handleWindowResize = () => {
+    const breakpoints = {
+      desktop: 1024,
+      tablet: 840,
+    }
+    if (window.innerWidth > breakpoints.desktop) {
+      this.setState({ device: 'desktop' })
+    }
+    else if (window.innerWidth < breakpoints.desktop && window.innerWidth > breakpoints.tablet) {
+      this.setState({ device: 'tablet' })
+    }
+    else if (window.innerWidth < breakpoints.tablet) {
+      this.setState({ device: 'mobile' })
+    }
+  }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowResize);
+  }
 
 
   render() {
+
     return (
+
       <div className="App">
+        {console.log('place for device App ', this.state.device)}
         <div className="TopPanel">
           <TopBar username={this.state.username} userLogin={this.userLogin} />
         </div>
@@ -29,7 +56,7 @@ class App extends Component {
         <div className="ContainerPanel">
 
           <div className="LeftPanel">
-            <LeftTopicsPanel topic={this.state.topic} />
+            <LeftTopicsPanel topic={this.state.topic} device={this.state.device} />
           </div>
           <div className="MainPanel">
             <MainRouter username={this.state.username} />
