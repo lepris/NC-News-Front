@@ -11,7 +11,7 @@ class Pagination extends Component {
 
   render() {
     const { pages } = this.props;
-    console.log('hello from pagination', pages)
+
     return pages.map((page, index) => {
       return (
         <button key={index} value={page} onClick={this.handleClick}>
