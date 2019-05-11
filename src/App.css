@@ -12,6 +12,15 @@ h1{
   color: white;
 }
 
+/*Beautiful dropped shadows*/
+.dropShadow {
+  box-shadow: 0em .5em 10px rgba(10, 11, 68, 0.1);
+}
+.dropInsetShadow {
+  box-shadow: inset 0em .5em 10px rgba(10, 11, 68, 0.1);
+}
+
+
 .article-lis-title {
   text-decoration: none;
   color: white
@@ -38,10 +47,8 @@ fieldset{
   text-align: left;
 }
 
-button{
+button {
   
-  font-family: 'Open Sans', sans-serif !important;
-  font-weight: 300;
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.4em;
@@ -57,13 +64,13 @@ button{
  
 }
 
-button:active{
+/* button:active{
   background: rgb(172, 229, 231);
 }
 
 button:hover{
   background: #8c9232;
-}
+} */
 
 .button_small{
   font-size: 0.6em;
