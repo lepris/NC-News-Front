@@ -5,15 +5,13 @@ import './NavDesktop.css'
 import SortTopMenu from '../SortTopMenu';
 
 
-export const NavDesktop = ({ username }) => (
+export const NavDesktop = ({ username, uri }) => (
     <div>
         <nav className="TopMenuContainer dropShadow" >
 
 
             <Link className='TopButton' to='/'><img className='TopMenuLogo' src={logo} alt='logo' /></Link>
-
-
-            <SortTopMenu />
+            <SortTopMenu uri={uri} />
             <Link className='TopButton Patua' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
             <Link className='TopButton Patua' to='/articles/add'> <i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>User Profile</span></Link>
             {username && <>

@@ -8,15 +8,18 @@ export const fetchAllArticles = async (topic, filter) => {
   let filterType = "";
 
   if (topic) {
-    queryTopic = `?topic=${topic}`;
+    queryTopic = `topic=${topic}`;
   }
   if (filter === 'mostVoted') {
-    filterType = "?sort_by=votes&order=desc";
+    filterType = "&sort_by=votes&order=desc";
+  }
+  if (filter === 'mostCommented') {
+    filterType = "&sort_by=comment_count&order=desc";
   }
 
 
 
-  const { data } = await axios.get(`${Base_Url}/articles/${queryTopic}${filterType}`);
+  const { data } = await axios.get(`${Base_Url}/articles/?${queryTopic}${filterType}`);
   return data.articles;
 };
 
