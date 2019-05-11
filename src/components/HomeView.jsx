@@ -63,7 +63,6 @@ class HomeView extends Component {
 
   getArticles = () => {
     const { topic, filter } = this.props;
-    console.log(filter)
     fetchAllArticles(topic, filter)
       .then(articlesList => {
         if (articlesList) this.setState({ articlesList, loading: false });
