@@ -44,24 +44,20 @@ class App extends Component {
 
 
   render() {
-
+    const { device, username } = this.state;
     return (
 
       <div className="App">
-        {console.log('place for device App ', this.state.device)}
+        {console.log('place for device App ', device)}
         <div className="TopPanel">
-          <TopBar username={this.state.username} userLogin={this.userLogin} />
+          <TopBar device={device} username={username} userLogin={this.userLogin} />
         </div>
-
         <div className="ContainerPanel">
-
           <div className="LeftPanel">
-
-
-            <LeftTopicsPanel device={this.state.device} />
+            <LeftTopicsPanel device={device} />
           </div>
           <div className="MainPanel">
-            <MainRouter username={this.state.username} />
+            <MainRouter username={username} />
           </div>
         </div>
 

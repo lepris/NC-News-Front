@@ -20,8 +20,8 @@ class HomeView extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    const { topic } = this.props;
-    if (prevProps.topic !== topic) {
+    const { topic, filter } = this.props;
+    if (prevProps.topic !== topic || prevProps.filter !== filter) {
       this.getArticles();
       this.setState({ errMSG: "", page: 1 });
     }
