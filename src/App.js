@@ -58,7 +58,7 @@ class App extends Component {
           <div className="LeftPanel">
 
 
-            <LeftTopicsPanel topic={this.state.topic} device={this.state.device} />
+            <LeftTopicsPanel device={this.state.device} />
           </div>
           <div className="MainPanel">
             <MainRouter username={this.state.username} />

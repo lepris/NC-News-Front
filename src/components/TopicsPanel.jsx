@@ -37,7 +37,7 @@ class TopicsPanel extends Component {
                     <h3>Topics selection</h3>
                     <ul>
                         {this.state.topics.map((topic, ind) => {
-                            return <Link key={ind} to={`/topics/${topic.slug}`}><li>{topic.description}</li></Link >
+                            return <Link key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description}</li></Link >
                         })}
                     </ul>
                 </>)
@@ -51,7 +51,7 @@ class TopicsPanel extends Component {
                 <p>Mobile View</p>
                 <button onClick={this.toggleMenu}>{this.state.isOpen ? 'Hide Topics' : 'Show Topics'}</button>
                 {this.state.isOpen === true && this.state.topics.map((topic, ind) => {
-                    return <Link key={ind} to={`/topics/${topic.slug}`} ><button onClick={() => this.setState({ isOpen: false })}>{topic.description}</button></Link >
+                    return <Link key={ind} state={{ topic: topic.slug }} to={`/topics/${topic.slug}`} ><button onClick={() => this.setState({ isOpen: false })}>{topic.description}</button></Link >
                 })}
             </>)
         }

@@ -8,10 +8,12 @@ import { Erroneous } from '../Erroneous';
 
 export const MainRouter = ({ username, topic }) => (
     <Router className='App-main-route'  >
+        <Erroneous path='/*' />
         <AddArticle username={username} path='/articles/add' />
         <Homeview path='/' />
-        <Erroneous path='/*' />
-        <Homeview topic={topic} path='/topics/:topic' />
+        <Homeview path='/:filter' />
+        <Homeview topic={topic} path='/topics/:topic/' />
+        <Homeview topic={topic} path='/topics/:topic/:filter' />
 
         <SingleArticleView username={username} path='/articles/:article_id' />
     </Router>

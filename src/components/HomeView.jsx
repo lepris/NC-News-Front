@@ -20,7 +20,8 @@ class HomeView extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.topic !== this.props.topic) {
+    const { topic } = this.props;
+    if (prevProps.topic !== topic) {
       this.getArticles();
       this.setState({ errMSG: "", page: 1 });
     }
@@ -61,7 +62,9 @@ class HomeView extends Component {
   }
 
   getArticles = () => {
-    fetchAllArticles(this.props.topic)
+    const { topic, filter } = this.props;
+    console.log(filter)
+    fetchAllArticles(topic, filter)
       .then(articlesList => {
         if (articlesList) this.setState({ articlesList, loading: false });
         else this.setState({ articlesList: [], loading: false });
@@ -76,14 +79,15 @@ class HomeView extends Component {
     if (this.state.loading) return <div>Loading...</div>;
     if (!this.state.articlesList.length) return <p>no articles</p>;
     const { page, howMany } = this.state;
+    const { topic } = this.props;
     const begin = page > 1 ? (+page - 1) * +howMany : 0;
     const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
 
     return (
       <>
 
-        <h1>{this.props.topic || 'All'} articles section</h1>
-
+        <h1>{topic || 'All'} articles section</h1>
+        <h4>{this.props.uri}</h4>
         <div>
           <span>
             {this.state.pages.length > 1 && <Pagination
