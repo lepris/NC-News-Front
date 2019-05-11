@@ -2,14 +2,21 @@ import axios from "axios";
 
 const Base_Url = "https://banana-crisp-75783.herokuapp.com/api";
 
-export const fetchAllArticles = async topic => {
+export const fetchAllArticles = async (topic, filter) => {
   console.log("///fetching all articles in API");
   let queryTopic = "";
+  let filterType = "";
+
   if (topic) {
     queryTopic = `?topic=${topic}`;
   }
+  if (filter === 'mostVoted') {
+    filterType = "?sort_by=votes&order=desc";
+  }
 
-  const { data } = await axios.get(`${Base_Url}/articles/${queryTopic}`);
+
+
+  const { data } = await axios.get(`${Base_Url}/articles/${queryTopic}${filterType}`);
   return data.articles;
 };
 
