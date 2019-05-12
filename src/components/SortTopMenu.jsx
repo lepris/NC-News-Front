@@ -10,6 +10,7 @@ export default class SortTopMenu extends Component {
     showMenu = (e) => {
         e.preventDefault();
         this.setState({ showMenu: true }, () => {
+            window.addEventListener('resize', this.hideMenu);
             document.addEventListener('click', this.hideMenu);
         });
     }
@@ -28,7 +29,7 @@ export default class SortTopMenu extends Component {
 
             <div className='TopButton Patua'>
 
-                <Link className='TopButton Patua' to='/' onClick={this.showMenu}><i className="fas fa-filter bigIcon"></i><span className='TopButtonDescription'>Sorting Criteria</span></Link>
+                <Link className='TopButton Patua' to='/' onClick={this.showMenu}><i className="fas fa-sort-amount-down bigIcon"></i><span className='TopButtonDescription'>Sorting Criteria</span></Link>
                 {this.state.showMenu
                     ? (
                         <div className='DropMenu dropInsetShadow'>
