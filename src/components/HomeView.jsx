@@ -78,7 +78,8 @@ class HomeView extends Component {
     if (this.state.loading) return <div>Loading...</div>;
     if (!this.state.articlesList.length) return <p>no articles</p>;
     const { page, howMany } = this.state;
-    const { topic } = this.props;
+    const { topic, uri } = this.props;
+
     const begin = page > 1 ? (+page - 1) * +howMany : 0;
     const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
 
@@ -111,7 +112,7 @@ class HomeView extends Component {
           {this.state.articlesList
             .slice(begin, end)
             .map((art, ind) => {
-              return <HomeViewArticle key={ind} index={ind} article={art} />;
+              return <HomeViewArticle key={ind} index={ind} path={uri} article={art} />;
             })}
         </div>
       </>

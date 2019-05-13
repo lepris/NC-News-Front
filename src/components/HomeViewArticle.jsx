@@ -8,6 +8,7 @@ class HomeViewArticle extends Component {
     }
 
     render() {
+        let { path } = this.props;
         const art = this.props.article;
         const createdWhen = new Date(art.created_at)
         const { index } = this.props
@@ -20,7 +21,7 @@ class HomeViewArticle extends Component {
             <Link className='article-lis-title' to={`/articles/` + art.article_id}><h2>{index}  {art.title}</h2></Link>
 
             <p className='articles_lis_info'>
-                <Link className='article_lis_topic' to={`topics/${art.topic}/`}>topics/{art.topic}/</Link>
+                <Link className='article_lis_topic' to={path.includes(art.topic) ? path : `/topics/${art.topic}/`}>topics/{art.topic}/</Link>
                 <i className="fas fa-user-tag"> </i>{art.author}
                 <i className="fas fa-thumbs-up"></i> {art.votes}
                 <i className="fas fa-comments"></i> {art.comment_count}

@@ -5,7 +5,7 @@ import { Link } from '@reach/router'
 class TopicsPanel extends Component {
     state = {
         loading: false,
-        topics: ['football', 'coding'],
+        topics: [],
         isOpen: false,
         showTopics: ['Show Topics', 'Hide Topics']
     }
@@ -17,8 +17,6 @@ class TopicsPanel extends Component {
         fetchAllTopics()
             .then(topics => this.setState({ topics }))
     }
-
-
 
     toggleMenu = (e) => {
         e.preventDefault();
