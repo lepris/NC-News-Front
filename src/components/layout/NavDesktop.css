@@ -20,6 +20,14 @@
 
 }
 
+.LoginSingButton {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    padding: 0.25em;
+}
+
+
 .bigIcon {
     font-size: 2em;
     padding-bottom: 0.25em;

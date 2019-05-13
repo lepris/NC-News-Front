@@ -57,7 +57,7 @@ class App extends Component {
             <LeftTopicsPanel device={device} />
           </div>
           <div className="MainPanel">
-            <MainRouter username={username} />
+            <MainRouter username={username} userLogin={this.userLogin} />
           </div>
         </div>
 
