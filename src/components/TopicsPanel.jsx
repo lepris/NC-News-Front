@@ -37,11 +37,11 @@ class TopicsPanel extends Component {
                     <h3 className='Tan'>Topics selection</h3>
                     <div>
                         {topics.map((topic, ind) => {
-                            return <Link key={ind} to={`/topics/${topic.slug}/`}>
-                                <div className='OutsideButton TopicsButton textContourShadow'>
-                                    <div>{topic.description}</div>
-                                    <span className='SteelBlue'>&#8470; {topic.articles_count} </span>
-                                </div></Link >
+                            return <Link className='OutsideButton' key={ind} to={`/topics/${topic.slug}/`}>
+                                <span className='TopicsButton'>
+                                    <span className=' textContourShadow '>{topic.description}</span>
+                                    <span className='SteelBlue artCount'>&#8470; {topic.articles_count}</span>
+                                </span></Link >
                         })}
 
                     </div>
