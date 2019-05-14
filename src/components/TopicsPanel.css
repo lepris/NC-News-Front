@@ -1,4 +1,10 @@
 .TopicsButton {
     font-weight: 600;
     list-style: none;
+
+    margin: 0.25em 0em .5em 0em;
+    padding: 0em .5em .5em 0em;
+    background: -webkit-linear-gradient(rgba(62, 146, 174, 0), rgba(62, 146, 174, 0.445));
+
+   border-right: 1em solid teal;
 }

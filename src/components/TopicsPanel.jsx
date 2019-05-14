@@ -35,12 +35,16 @@ class TopicsPanel extends Component {
             return (
                 <>
                     <h3 className='Tan'>Topics selection</h3>
-                    <ul>
+                    <div>
                         {topics.map((topic, ind) => {
-                            return <Link className='OutsideButton TopicsButton' key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description} ({topic.articles_count})</li></Link >
+                            return <Link key={ind} to={`/topics/${topic.slug}/`}>
+                                <div className='OutsideButton TopicsButton textContourShadow'>
+                                    <div>{topic.description}</div>
+                                    <span className='SteelBlue'>&#8470; {topic.articles_count} </span>
+                                </div></Link >
                         })}
 
-                    </ul>
+                    </div>
                 </>)
         } else if (device === 'tablet') {
             return (<>
