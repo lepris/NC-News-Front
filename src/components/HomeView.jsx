@@ -3,6 +3,7 @@ import { fetchAllArticles } from "../db/api";
 import HomeViewArticle from "./HomeViewArticle";
 import { Erroneous } from "./Erroneous";
 import Pagination from "./Pagination";
+import './HomeView.css'
 
 class HomeView extends Component {
   state = {
@@ -86,34 +87,28 @@ class HomeView extends Component {
     return (
       <>
 
-        <h1>{topic || 'All'} articles section</h1>
-        <h4>{this.props.uri}</h4>
-        <div>
-          <span>
-            {this.state.pages.length > 1 && <Pagination
-              name="page"
-              pages={this.state.pages}
-              handlePageChange={this.handlePageChange}
-            />}
-          </span>
+        <div className='HeroArticlesView'>
+          <h1>{topic || 'All'} articles section</h1>
+          <h4>{this.props.uri}</h4>
 
-          <span>results per page</span>
-          <select
-            name="howMany"
-            value={this.state.howMany}
-            onChange={this.handleHowManyChange}
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="25">25</option>
-          </select>
-        </div>
-        <div>
-          {this.state.articlesList
-            .slice(begin, end)
-            .map((art, ind) => {
-              return <HomeViewArticle key={ind} index={ind} path={uri} article={art} />;
-            })}
+          <div >
+            <div className='PaginationContainer'>
+              {this.state.pages.length > 1 && <Pagination
+                name="page"
+                pages={this.state.pages}
+                handlePageChange={this.handlePageChange}
+                howMany={this.state.howMany}
+                handleHowManyChange={this.handleHowManyChange}
+              />}
+            </div>
+          </div>
+          <div className='ArticlesContainer'>
+            {this.state.articlesList
+              .slice(begin, end)
+              .map((art, ind) => {
+                return <HomeViewArticle key={ind} index={ind} path={uri} article={art} />;
+              })}
+          </div>
         </div>
       </>
     );

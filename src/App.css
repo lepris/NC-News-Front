@@ -21,18 +21,7 @@ h1{
 }
 
 
-.article-lis-title {
-  text-decoration: none;
-  color: white
-}
 
-.article_lis_topic{
-    color: white;
-}
-.articles_lis_info{
-  font-size: 0.8em;
-  color: #555;
-}
 .info_message{
   /* border: 1px dotted #eee; */
   font-style: italic;

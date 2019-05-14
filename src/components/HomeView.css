@@ -1,0 +1,80 @@
+.ArticlesContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-end;
+    /* background-color: aquamarine; */
+}
+
+
+.PaginationContainer {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+
+
+.SingleArticleContainer {
+    /* width: 20%; */
+    flex-basis: 32%;
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    color: #555;
+    border-bottom: 1px solid gray;
+    background-color: aliceblue;
+    border-radius: 0.2em;
+   
+  }
+
+.SingleArticleCard {
+    padding: 1em;
+    margin: 1em;
+   
+}
+
+.ArticleDate {
+    text-align: left;
+}
+.HomeViewArticleAuthorAvatar {
+    
+        object-fit: cover;
+        border-radius:50%;
+        width: 40px;
+        height: 40px;
+        padding-right: 0.6em;
+        padding-left: 1em;
+        
+      
+}
+.HomeViewArticleAuthorCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: baseline;
+   
+}
+
+.AuthorName{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.HeroArticlesView {
+    background-image: url('../img/coding_hero_fotis-fotopoulos-790373-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    border: 1px solid pink;
+}
+.article-lis-title {
+    text-decoration: none;
+   
+  }
+  
+  .article_lis_topic{
+     
+  }
+  
