@@ -1,6 +1,7 @@
 .DropMenu {
     position: fixed;
-    top: 6em;
+    
+    top: 5.8em;
     
     display: flex;
     flex-direction: column;
@@ -19,9 +20,9 @@
     letter-spacing: inherit;
     color: inherit;
 
-    padding: 1em 1em 1em 0em;
+    padding: 0.8em 1em 1em 0em;
     background: none;
-    border: solid 2px blue;
+   
 }
 
 .DropmenuButton :active {

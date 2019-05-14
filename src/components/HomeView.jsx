@@ -87,29 +87,30 @@ class HomeView extends Component {
     return (
       <>
 
-        <div className='HeroArticlesView'>
-          <h1>{topic || 'All'} articles section</h1>
-          <h4>{this.props.uri}</h4>
+        <div className='HeroArticlesView textContourShadow'>
+          <h1 >{topic || 'All'} articles section</h1>
+          <h4 className='Tan'>{this.props.uri}</h4>
 
-          <div >
-            <div className='PaginationContainer'>
-              {this.state.pages.length > 1 && <Pagination
-                name="page"
-                pages={this.state.pages}
-                handlePageChange={this.handlePageChange}
-                howMany={this.state.howMany}
-                handleHowManyChange={this.handleHowManyChange}
-              />}
-            </div>
-          </div>
-          <div className='ArticlesContainer'>
-            {this.state.articlesList
-              .slice(begin, end)
-              .map((art, ind) => {
-                return <HomeViewArticle key={ind} index={ind} path={uri} article={art} />;
-              })}
+
+          <div className='PaginationContainer'>
+            {this.state.pages.length > 1 && <Pagination
+              name="page"
+              pages={this.state.pages}
+              handlePageChange={this.handlePageChange}
+              howMany={this.state.howMany}
+              handleHowManyChange={this.handleHowManyChange}
+            />}
           </div>
         </div>
+
+        <div className='ArticlesContainer'>
+          {this.state.articlesList
+            .slice(begin, end)
+            .map((art, ind) => {
+              return <HomeViewArticle key={ind} index={ind} path={uri} article={art} />;
+            })}
+        </div>
+
       </>
     );
   }

@@ -5,19 +5,46 @@
 }
 h1, h2, h3, h4, .Patua {
   font-family: 'Patua One', cursive;
-   
 }
+
 h1{
-  font-weight: 700;
-  color: white;
+  font-weight: 900;
+  letter-spacing: 2pt;
+  font-kerning: auto;
+  font-size: 5em;
+  color:rgb(233, 219, 198);
+}
+/* Colours */
+.Tan {
+  color: #CFAE79; 
+}
+.SteelBlue {
+  color: #3E92AE;
+}
+.MidnightBlue {
+  color: #0A3741;
+}
+.Teal {
+  color: #095567;
 }
 
 /*Beautiful dropped shadows*/
+/* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color] */
+.textContourShadow {
+  text-shadow: .1em .1em 2px rgba(1, 10, 27, 0.9);
+}
+.contourShadow {
+  box-shadow: .1em .1em 2px rgba(1, 10, 27, 0.9);
+}
 .dropShadow {
   box-shadow: 0em .5em 10px rgba(10, 11, 68, 0.1);
 }
 .dropInsetShadow {
   box-shadow: inset 0em .5em 10px rgba(10, 11, 68, 0.1);
+}
+
+.OutsideButton {
+  color: tan;
 }
 
 
@@ -46,7 +73,7 @@ button {
   padding: 1em 1em 1em 1em;
   margin: 0.5em 0.5em 0.5em 0.5em;
 
-  background: #b8ae58;
+  background: #317488;
   border: 0px solid red;
   border-radius: 0.25em;
 

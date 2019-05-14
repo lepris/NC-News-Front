@@ -30,7 +30,7 @@ class HomeViewArticle extends Component {
                         </div>
                         <div>
                             <span>AUTHOR</span><br></br>
-                            <span className='AuthorName'> {art.author}</span>
+                            <span className='AuthorName SteelBlue'> {art.author}</span>
 
                         </div>
                     </div>
@@ -47,8 +47,8 @@ class HomeViewArticle extends Component {
 
 
                     <div>
-                        <i className="fas fa-thumbs-up"></i> <span>{art.votes}   </span>
-                        <i className="fas fa-comments"></i> <span>{art.comment_count} </span>
+                        <i className="fas fa-thumbs-up Teal"></i> <span>{art.votes}   </span>
+                        <i className="fas fa-comments SteelBlue"></i> <span>{art.comment_count} </span>
                         <Link to={`/articles/` + art.article_id}>
                             <button className='button_small'><i className="fas fa-book-open"></i>read more</button>
                         </Link>

@@ -19,14 +19,14 @@ class Pagination extends Component {
 
           {pages.map((page, index) => {
             return (
-              <button key={index} value={page} onClick={this.handleClick}>
+              <button className='contourShadow' key={index} value={page} onClick={this.handleClick}>
                 {page}
               </button>
             );
           })}
         </span>
 
-        <span>results per page</span>
+        <span className='Tan'>results per page</span>
         <select
           name="howMany"
           value={howMany}

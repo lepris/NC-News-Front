@@ -1,6 +1,11 @@
-.App {
+.App, .TopPanel{
    
-background-color: gray;
+    background-image: url('./img/mountain_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-color: black;
 }
 
 .TopPanel {
@@ -8,12 +13,11 @@ z-index: 1;
 
 position: sticky;
 top: 0;
-
 flex: 1;
 min-height: 100px;
 width: 100%;
+/* background-color: rgb(255,255,255, 0.5); */
 
-background-color: aqua;
 }
 
 .ContainerPanel {
@@ -26,15 +30,16 @@ flex-direction: row;
 
 .LeftPanel {
 position: sticky;
+text-align: right;
 height: 100%;
-top: 15vh; /*this adds the space for menu*/
+top: 15vh; /*this adds the space for menu while sticky*/
 width: 50vh;
-background-color: peru;
+padding-right: 2em;
 }
 
 .MainPanel {  
 display: flex;
 overflow-y: auto;
 flex: 2;
-background-color: purple;
+
 }
