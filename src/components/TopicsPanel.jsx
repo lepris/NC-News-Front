@@ -5,7 +5,7 @@ import { Link } from '@reach/router'
 class TopicsPanel extends Component {
     state = {
         loading: false,
-        topics: [],
+        topics: ['coding', 'football'],
         isOpen: false,
         showTopics: ['Show Topics', 'Hide Topics']
     }
@@ -25,6 +25,7 @@ class TopicsPanel extends Component {
 
     render() {
         const { device } = this.props;
+        const { topics, isOpen } = this.state;
         console.log(device)
 
 
@@ -34,9 +35,10 @@ class TopicsPanel extends Component {
                 <>
                     <h3>Topics selection</h3>
                     <ul>
-                        {this.state.topics.map((topic, ind) => {
-                            return <Link key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description}</li></Link >
+                        {topics.map((topic, ind) => {
+                            return <Link key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description} ({topic.articles_count})</li></Link >
                         })}
+
                     </ul>
                 </>)
         } else if (device === 'tablet') {
@@ -47,8 +49,8 @@ class TopicsPanel extends Component {
         } else if (device === 'mobile') {
             return (<>
                 <p>Mobile View</p>
-                <button onClick={this.toggleMenu}>{this.state.isOpen ? 'Hide Topics' : 'Show Topics'}</button>
-                {this.state.isOpen === true && this.state.topics.map((topic, ind) => {
+                <button onClick={this.toggleMenu}>{isOpen ? 'Hide Topics' : 'Show Topics'}</button>
+                {isOpen === true && topics.map((topic, ind) => {
                     return <Link key={ind} state={{ topic: topic.slug }} to={`/topics/${topic.slug}`} ><button onClick={() => this.setState({ isOpen: false })}>{topic.description}</button></Link >
                 })}
             </>)

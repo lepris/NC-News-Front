@@ -3,14 +3,39 @@
         padding-top: 0vh;
     }
     .TopPanel {
-        position: relative;
-
+        position: sticky;
+        width: 100%;
         display: flex;
         flex: 1;
-        
-        /* height: auto; */
+        justify-content: space-evenly;
+        border: 1px solid cyan;
+        min-height: inherit;
         background-color: aqua;
-        }
+    }
+    .App-top-route {
+        width: 100%;
+    }
+    .TopButton {
+        display: flex;
+        flex: 1;
+        width: 20%;
+        flex-direction: column;
+        border: solid 2px fuchsia !important;
+        justify-content: center;
+        align-content: baseline;   
+        text-decoration: none;
+        padding: 0em;
+    
+    }
+    .TopButtonDescription {
+        visibility: hidden;
+        text-align: center;
+        font-size: 0em;
+    }
+     
+    .TopMenuLogo {
+        max-width: 6em;
+    }
 
     .ContainerPanel {
         display: flex;
@@ -33,4 +58,13 @@
         flex: 2;
         background-color: purple;
         }
+
+    .ArticlesContainer {
+        display: flex;
+        flex: 1;
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-content: flex-end;
+    }
 }
