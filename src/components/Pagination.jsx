@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class Pagination extends Component {
 
   handleClick = (e) => {
@@ -10,15 +11,33 @@ class Pagination extends Component {
   }
 
   render() {
-    const { pages } = this.props;
+    const { pages, howMany, handleHowManyChange } = this.props;
 
-    return pages.map((page, index) => {
-      return (
-        <button key={index} value={page} onClick={this.handleClick}>
-          {page}
-        </button>
-      );
-    });
+    return (
+      <div>
+        <span>
+
+          {pages.map((page, index) => {
+            return (
+              <button key={index} value={page} onClick={this.handleClick}>
+                {page}
+              </button>
+            );
+          })}
+        </span>
+
+        <span>results per page</span>
+        <select
+          name="howMany"
+          value={howMany}
+          onChange={handleHowManyChange}
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+        </select>
+      </div>
+    )
   }
 }
 
