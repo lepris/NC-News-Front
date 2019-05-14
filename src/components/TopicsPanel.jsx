@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { fetchAllTopics } from '../db/api'
 import { Link } from '@reach/router'
+import './TopicsPanel.css'
 
 class TopicsPanel extends Component {
     state = {
@@ -33,10 +34,10 @@ class TopicsPanel extends Component {
         else if (device === 'desktop') {
             return (
                 <>
-                    <h3>Topics selection</h3>
+                    <h3 className='Tan'>Topics selection</h3>
                     <ul>
                         {topics.map((topic, ind) => {
-                            return <Link key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description} ({topic.articles_count})</li></Link >
+                            return <Link className='OutsideButton TopicsButton' key={ind} to={`/topics/${topic.slug}/`}><li>{topic.description} ({topic.articles_count})</li></Link >
                         })}
 
                     </ul>
@@ -48,7 +49,6 @@ class TopicsPanel extends Component {
             </>)
         } else if (device === 'mobile') {
             return (<>
-                <p>Mobile View</p>
                 <button onClick={this.toggleMenu}>{isOpen ? 'Hide Topics' : 'Show Topics'}</button>
                 {isOpen === true && topics.map((topic, ind) => {
                     return <Link key={ind} state={{ topic: topic.slug }} to={`/topics/${topic.slug}`} ><button onClick={() => this.setState({ isOpen: false })}>{topic.description}</button></Link >
