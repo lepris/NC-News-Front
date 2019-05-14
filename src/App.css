@@ -14,6 +14,13 @@ h1{
   font-size: 5em;
   color:rgb(233, 219, 198);
 }
+
+h2{
+  font-size: 4em;
+}
+h3{
+  font-size: 2em;
+}
 /* Colours */
 .Tan {
   color: #CFAE79; 
@@ -43,8 +50,29 @@ h1{
   box-shadow: inset 0em .5em 10px rgba(10, 11, 68, 0.1);
 }
 
+/* Button styling */
 .OutsideButton {
   color: tan;
+ 
+}
+
+.OutsideButton:hover {
+  color: #3E92AE;
+  border-bottom: 1px solid  #3E92AE;
+  background: -webkit-linear-gradient(#CFAE79, #3E92AE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: .5em .5em 10px rgba(1, 10, 27, 0.3);
+}
+
+.OutsideButton:active {
+  color:tan;
+  background: -webkit-linear-gradient(#CFAE79, rgb(143, 198, 216));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: .5em .5em 10px rgba(1, 10, 27, 0.3);
 }
 
 

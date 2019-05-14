@@ -8,14 +8,11 @@
     /* background-color: aquamarine; */
 }
 
-
 .PaginationContainer {
     display: flex;
     flex: 1;
     justify-content: flex-start;
 }
-
-
 
 .SingleArticleContainer {
     /* width: 20%; */
@@ -26,7 +23,6 @@
     border-bottom: 1px solid gray;
     background-color: aliceblue;
     border-radius: 0.2em;
-   
   }
 
 .SingleArticleCard {
@@ -46,15 +42,12 @@
         height: 40px;
         padding-right: 0.6em;
         padding-left: 1em;
-        
-      
 }
 .HomeViewArticleAuthorCard {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-content: baseline;
-   
 }
 
 .AuthorName{
@@ -67,13 +60,10 @@
    flex-direction: column;
    justify-content: flex-end;
    align-content: flex-start;
-   
-    
 }
 .article-lis-title {
     text-decoration: none;
-   
-  }
+}
   
   .article_lis_topic{
      
