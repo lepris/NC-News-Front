@@ -4,14 +4,28 @@ import logo from '../../img/logo.png';
 import './NavDesktop.css'
 import SortTopMenu from '../SortTopMenu';
 
+const goBack = (e) => {
+    e.preventDefault()
+    window.history.back()
+}
 
-export const NavDesktop = ({ username, uri }) => (
+export const NavDesktop = ({ username, uri, pageType }) => (
     <div>
         <nav className="TopMenuContainer dropShadow" >
 
 
             <Link className='TopButton OutsideButton' to='/'><img className='TopMenuLogo' src={logo} alt='logo' /></Link>
-            <SortTopMenu uri={uri} />
+
+            {pageType !== 'SingleArticle' ? (
+                <SortTopMenu uri={uri} />
+            )
+                :
+                (
+                    <span className='TopButton Patua OutsideButton' onClick={goBack}><i className="fas fa-arrow-left bigIcon"></i>Back</span>
+                )
+            }
+
+
             <Link className='TopButton Patua OutsideButton' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
 
             {username !== '' ? (
@@ -27,7 +41,7 @@ export const NavDesktop = ({ username, uri }) => (
                 )
             }
         </nav>
-    </div>
+    </div >
 );
 
 
