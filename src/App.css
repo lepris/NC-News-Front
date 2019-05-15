@@ -38,6 +38,10 @@ h3{
 
 /*Beautiful dropped shadows*/
 /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color] */
+.smallTextContourShadow {
+  text-shadow: -1px 1px 1px rgba(248, 246, 145, 0.3);
+}
+
 .textContourShadow {
   text-shadow: .1em .1em 2px rgba(1, 10, 27, 0.9);
 }
@@ -58,24 +62,25 @@ h3{
 }
 
 .OutsideButton:hover {
-  color: #3E92AE;
+  color: rgba(177, 220, 235, 0.171);
   /* border-bottom: 1px solid  #3E92AE; */
   background: -webkit-linear-gradient(#CFAE79, #3E92AE);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
+  background-clip: text ;
+  /* text-fill-color: transparent;
+  */
   text-shadow: .5em .5em 10px rgba(1, 10, 27, 0.3);
 }
 
-.OutsideButton:active {
-  color:tan;
-  background: -webkit-linear-gradient(#CFAE79, rgb(143, 198, 216));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 
-  text-shadow: .5em .5em 10px rgba(1, 10, 27, 0.3);
+.DarkButton {
+  color: #333333;
+ 
 }
 
+.DarkButton:hover {
+  /* color: steelblue; */
+  text-shadow: 1px 1px 1px rgba(39, 2, 36, 0.3);
+}
 .info_message{
   /* border: 1px dotted #eee; */
   font-style: italic;

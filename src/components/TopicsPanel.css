@@ -1,25 +1,37 @@
 .TopicsButton {
-    font-weight: 600;
-    text-decoration: none !important;
+    text-decoration: none;
+    font-weight: 900;
     font-size: 1em;
     margin: 0.25em 0em .5em 0em;
-    padding: 0em .5em .5em 0em;
+    padding: .5em .5em .5em 0em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    
-    /* background: -webkit-linear-gradient(rgba(62, 146, 174, 0), rgba(62, 146, 174, 0.445));
-
-   border-right: 1em solid teal; */
+    background: -webkit-linear-gradient(#CFAE79, rgba(62, 146, 174, 0));
+    box-shadow: 0px -7px 20px rgba(207, 174, 121, 0.5);
+    border-top-right-radius: .3em;
 }
+
+
+.TopicsButton :hover {
+    
+    color: #694944;
+}
+
 .artCount{
     display: block;
     width: 3em;
-    background-color: teal;
-    color: tan;
+    background-color: #c79a69;
+    color: rgba(150, 103, 62, 0.75);
+    
     text-decoration: none;
     padding: .2em;
-    margin-left: 1em;
+    margin: .5em 0em 0em 1em;
     border-radius: .25em;
     align-self: flex-end;
+}
+
+.artCount :hover {
+    text-decoration: none !important;
+    color: rgba(150, 103, 62, 0.75);
 }

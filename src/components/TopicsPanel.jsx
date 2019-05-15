@@ -34,14 +34,14 @@ class TopicsPanel extends Component {
         else if (device === 'desktop') {
             return (
                 <>
-                    <h3 className='Tan'>Topics selection</h3>
+                    <h3 className='Tan textContourShadow'>Topics selection</h3>
                     <div>
                         {topics.map((topic, ind) => {
-                            return <Link className='OutsideButton' key={ind} to={`/topics/${topic.slug}/`}>
-                                <span className='TopicsButton'>
-                                    <span className=' textContourShadow '>{topic.description}</span>
-                                    <span className='SteelBlue artCount'>&#8470; {topic.articles_count}</span>
-                                </span></Link >
+                            return <Link className=' TopicsButton ' key={ind} to={`/topics/${topic.slug}/`}>
+                                <span className='smallTextContourShadow Title'>{topic.description}</span>
+
+                                <span className='artCount'>&#8470;{topic.articles_count}</span>
+                            </Link >
                         })}
 
                     </div>
