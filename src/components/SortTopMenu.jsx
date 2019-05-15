@@ -33,8 +33,8 @@ export default class SortTopMenu extends Component {
                 {this.state.showMenu
                     ? (
                         <div className='DropMenu dropInsetShadow'>
-                            <Link className='Patua DropMenuButton' to={path.includes('mostVoted') ? path : path.concat('mostVoted').replace('mostCommented/', '')} onClick={this.hideMenu}><i className="fas fa-thumbs-up"></i><span>Most Voted On</span></Link>
-                            <Link className='Patua DropMenuButton' to={path.includes('mostCommented') ? path : path.concat('mostCommented').replace('mostVoted/', '')} onClick={this.hideMenu}><i className="fas fa-comments"></i><span>Most Commented</span></Link>
+                            <Link className='Patua DropMenuButton DarkButton' to={path.includes('mostVoted') ? path : path.concat('mostVoted').replace('mostCommented/', '')} onClick={this.hideMenu}><i className="fas fa-thumbs-up"></i><span>Most Voted On</span></Link>
+                            <Link className='Patua DropMenuButton DarkButton' to={path.includes('mostCommented') ? path : path.concat('mostCommented').replace('mostVoted/', '')} onClick={this.hideMenu}><i className="fas fa-comments"></i><span>Most Commented</span></Link>
 
                             <p>{path}</p>
                         </div>
