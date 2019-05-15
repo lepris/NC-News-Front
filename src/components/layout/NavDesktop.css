@@ -18,6 +18,14 @@
     padding: 0.25em;
 }
 
+.TopOffer {
+    display: flex;
+    flex: 1;
+    flex-grow: 2;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
 
 
 .LoginSingButton {

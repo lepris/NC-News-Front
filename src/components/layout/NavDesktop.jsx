@@ -26,18 +26,27 @@ export const NavDesktop = ({ username, uri, pageType }) => (
             }
 
 
-            <Link className='TopButton Patua OutsideButton' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
+
 
             {username !== '' ? (
-
-                <Link className='TopButton Patua OutsideButton' to='/articles/add'><i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>Hello, {username}</span></Link>
+                <>
+                    <Link className='TopButton Patua OutsideButton' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
+                    <Link className='TopButton Patua OutsideButton' to='/'><i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>Hello, {username}</span></Link>
+                </>
             )
                 :
                 (
-                    <div className='TopButton Patua OutsideButton'>
-                        <Link to='/login' className='LoginSingButton OutsideButton'><i className="fas fa-sign-in-alt "></i><span className='TopButtonDescription'>Log In</span></Link>
-                        <Link to='/signup' className='LoginSingButton OutsideButton'><i className="fas fa-user-plus "></i><span className='TopButtonDescription'>Sign Up</span></Link>
-                    </div>
+                    <>
+
+                        <Link to='/login' className='TopButton Patua OutsideButton TopOffer' >
+                            <span ><i className="fas fa-meteor bigIcon"></i><span>Login or Signup to start publishing Articles </span></span>
+                        </Link>
+
+                        <div className='TopButton Patua OutsideButton'>
+                            <Link to='/login' className='LoginSingButton OutsideButton'><i className="fas fa-sign-in-alt "></i><span className='TopButtonDescription'>Log In</span></Link>
+                            <Link to='/signup' className='LoginSingButton OutsideButton'><i className="fas fa-user-plus "></i><span className='TopButtonDescription'>Sign Up</span></Link>
+                        </div>
+                    </>
                 )
             }
         </nav>

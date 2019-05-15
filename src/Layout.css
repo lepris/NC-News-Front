@@ -43,3 +43,7 @@ overflow-y: auto;
 flex: 2;
 
 }
+
+.SinglePage{
+    width: 75%;
+}

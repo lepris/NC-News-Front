@@ -27,16 +27,18 @@ class SingleArticleView extends Component {
     if (this.state.loading) return <p>Loading...</p>;
     if (this.state.err) return <Erroneous message={this.state.err.message} />;
     return (
-      <div className='SingleArticleContainer'>
-        <div className='SingleArticleCard'>
-          <ArticleComponent art={this.state.article} />
-          <ArticleVoter article={this.state.article} />
-          {this.state.article.article_id && (
-            <CommentsList
-              username={this.props.username}
-              artId={this.state.article.article_id}
-            />
-          )}
+      <div className='SinglePage'>
+        <div className='SingleArticleContainer'>
+          <div className='SingleArticleCard'>
+            <ArticleComponent art={this.state.article} />
+            <ArticleVoter article={this.state.article} />
+            {this.state.article.article_id && (
+              <CommentsList
+                username={this.props.username}
+                artId={this.state.article.article_id}
+              />
+            )}
+          </div>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ class LoginBox extends Component {
         passwdErr: false,
     }
 
+
     handleUserChange = (ev) => {
         ev.preventDefault()
         this.setState({ inputName: ev.target.value, nameErr: false })
@@ -34,6 +35,7 @@ class LoginBox extends Component {
 
             .then(user => user.password === this.state.inputPassword ? userLogin(user.username) : 0)
             .catch(err => this.setState({ passwdErr: true }))
+        window.history.back()
 
     }
 
