@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-import blankImg from '../img/blank-profile-picture.png'
+import ArticleAuthorBadge from './ArticleAuthorBadge';
+import { dateFinder } from '../utils/utils'
 class HomeViewArticle extends Component {
 
     state = {
@@ -10,32 +11,16 @@ class HomeViewArticle extends Component {
     render() {
         let { path } = this.props;
         const art = this.props.article;
-        const createdWhen = new Date(art.created_at)
-        const { index } = this.props
-
-        const date = createdWhen.getDate()
-        const month = createdWhen.getMonth()
-        const year = createdWhen.getFullYear()
-        let errorflag = true
-
+        const { index } = this.props;
         return (<>
 
 
             <div className='SingleArticleContainer'>
                 <div className='SingleArticleCard'>
-                    <div className='HomeViewArticleAuthorCard'>
-                        <div>
-                            <img className='HomeViewArticleAuthorAvatar' src={art.avatar_url || blankImg} alt='Article author'
-                                onError={(e) => { if (errorflag) { errorflag = false; e.target.src = blankImg; e.target.alt = 'No author Photo provided' } }} />
-                        </div>
-                        <div>
-                            <span>AUTHOR</span><br></br>
-                            <span className='AuthorName SteelBlue'> {art.author}</span>
+                    <ArticleAuthorBadge art={art} />
 
-                        </div>
-                    </div>
                     <div>
-                        <i className="fas fa-calendar-day ArticleDate"></i> {`${date} / ${month} / ${year}`}
+                        {dateFinder(art.created_at)}
                         <Link className='article-lis-title' to={`/articles/` + art.article_id}><h3>{index}  {art.title}</h3></Link>
                         <Link className='article_lis_topic' to={path.includes(art.topic) ? path : `/topics/${art.topic}/`}>topics/{art.topic}/</Link>
                     </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 export const dateFinder = (timestamp) => {
 
     const createdWhen = new Date(timestamp)
@@ -12,5 +13,9 @@ export const dateFinder = (timestamp) => {
     const nowYear = now.getFullYear()
 
 
-    return `${date} / ${month} / ${year}`
+    return (
+        <>
+            <i className="fas fa-calendar-day ArticleDate"></i>{`${date} / ${month} / ${year}`}
+        </>
+    )
 }

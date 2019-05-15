@@ -1,5 +1,6 @@
 import React from 'react';
-import ArticleAuthor from './ArticleAuthor';
+import { dateFinder } from '../utils/utils'
+import ArticleAuthorBadge from './ArticleAuthorBadge';
 
 export const ArticleComponent = ({ art }) => {
 
@@ -13,11 +14,10 @@ export const ArticleComponent = ({ art }) => {
 
 
     return (<>
-        {art.author && <ArticleAuthor username={art.author} />}
+        {art.author && < ArticleAuthorBadge art={art} />}
 
-
+        {dateFinder(art.created_at)}
         <h2 className='Teal'>{art.title}</h2>
-        <p>created at:<span> {`${date} / ${month} / ${year}`}</span></p>
         <div>{art.body}</div>
 
     </>)
