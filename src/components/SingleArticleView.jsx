@@ -22,20 +22,23 @@ class SingleArticleView extends Component {
   };
 
   render() {
+    const { loading, err, article } = this.state;
+    const { username } = this.props;
     window.scrollTo(0, 0);
 
-    if (this.state.loading) return <p>Loading...</p>;
-    if (this.state.err) return <Erroneous message={this.state.err.message} />;
+    if (loading) return <p>Loading...</p>;
+    if (err) return <Erroneous message={err.message} />;
     return (
       <div className='SinglePage'>
         <div className='SingleColumnContainer'>
           <div className='SingleArticleCard'>
-            <ArticleComponent art={this.state.article} />
-            <ArticleVoter article={this.state.article} />
-            {this.state.article.article_id && (
+            <ArticleComponent art={article} />
+            <ArticleVoter article={article} />
+            {article.article_id && (
               <CommentsList
-                username={this.props.username}
-                artId={this.state.article.article_id}
+                commentCount={article.comment_count}
+                username={username}
+                artId={article.article_id}
               />
             )}
           </div>

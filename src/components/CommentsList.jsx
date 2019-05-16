@@ -4,16 +4,19 @@ import ArticleComment from './ArticleComment';
 import ArticlePostComment from './ArticlePostComment';
 
 class CommentsList extends Component {
+
     state = {
         comments: [],
         updateComments: 0,
     }
     componentDidMount() {
-        this.getCommentsByArtId()
+        const { commentCount } = this.props;
+        commentCount > 0 ? this.getCommentsByArtId() : this.setState({ noComments: true })
     }
     getCommentsByArtId = () => {
         fetchAllCommentsByArticleId(this.props.artId)
             .then(comments => this.setState({ comments }))
+            .catch(err => this.setState({ commentsCount: 0 }))
     }
 
     handleDelete = (props) => {
