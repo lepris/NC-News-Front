@@ -77,14 +77,16 @@ class AddArticle extends Component {
         return (
 
             <>
-                <div className='HeroArticlesView textContourShadow'><h1>New Article</h1></div>
+
                 <div className='ThreeColumnContainer'>
                     < div className='SingleArticleCard' >
+                        <h2 className='Teal'>Creating New Article </h2>
                         <div className='form_new_article' >
 
                             {this.state.stepOne && <div className='fieldset_new_article'>
 
-                                <h3>Topic:</h3>
+
+                                <h3><span className='SteelBlue'>Step 1</span> Choose Your Topic</h3>
                                 <p>Please choose a topic for the new article. To do this simply select one from the Drop Down list or define a new one, by selecting 'Add New Topic' option</p>
                                 <select className='AddArticleSelect' onChange={this.handleTopicSelect} value={this.state.topic}>
                                     <option >Select your topic</option>
@@ -98,31 +100,35 @@ class AddArticle extends Component {
                             {/* <hr></hr> */}
                             {this.state.newTopic &&
                                 <div className='fieldset_new_article'>
-                                    <h4>Add New Topic</h4>
+
+                                    <h3><span className='SteelBlue'>Step 1</span> Add New Topic</h3>
+
                                     <input type='text' onChange={this.handleChange} name='topicSlug' placeholder='topic name'></input>
                                     <input type='text' onChange={this.handleChange} name='topicDescription' placeholder='topic description'></input>
-                                    <button type='submit' onclick={this.handleAddTopic} className='vote'>Add Topic</button>
+                                    <button className='ArticleSubmit' type='submit' onclick={this.handleAddTopic} >Add Topic</button>
                                 </div>
                             }
 
                             {
                                 this.state.newArticle && <div className='fieldset_new_article'>
-                                    <h4>Article</h4>
-                                    <p>topics/{this.state.topic}</p>
+                                    <h4>topics/<span className='Teal'>{this.state.topic}</span></h4>
+                                    <h3><span className='SteelBlue'>Step 2</span> Article Title and Body</h3>
+
                                     <label htmlFor='articleTitle'>Title</label>
 
                                     <input type='text' name='previewArticleTitle' onChange={this.handleChange} placeholder='artcle Title'></input>
                                     <label htmlFor='articleBody'>Body</label>
                                     <textarea name='previewArticleBody' onChange={this.handleChange} placeholder='article body'></textarea>
 
-                                    <button type='submit' onClick={this.handlePreview} className='vote'>Preview</button>
+                                    <button className='ArticleSubmit' type='submit' onClick={this.handlePreview} >Preview</button>
                                 </div>
                             }
                             {
                                 this.state.preview && <div className='fieldset_new_article'>
-                                    <h4 >{this.state.previewArticleTitle}</h4>
+                                    <h3><span className='SteelBlue'>Step 3</span> Previw and Publish</h3>
+                                    <h3 className='Teal'>{this.state.previewArticleTitle}</h3>
                                     <p >{this.state.previewArticleBody}</p>
-                                    <button type='submit' onClick={this.handleArticleSubmit}>Submit</button>
+                                    <button className='ArticleSubmit' type='submit' onClick={this.handleArticleSubmit}>Submit</button>
 
                                 </div>
 
