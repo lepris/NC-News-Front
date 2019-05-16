@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchAllTopics, addTopic, postArticle } from '../db/api'
-import './AddArticle.css'
-import { navigate } from '@reach/router'
+import './AddArticle.css';
+import { navigate, Link } from '@reach/router'
 class AddArticle extends Component {
     state = {
         topics: [],
@@ -49,6 +49,10 @@ class AddArticle extends Component {
         e.preventDefault()
         this.setState({ newArticle: false, preview: true })
     }
+    handleGuestSubmit = (e) => {
+        e.preventDefault()
+        navigate('/')
+    }
 
     handleArticleSubmit = (e) => {
         e.preventDefault()
@@ -57,8 +61,9 @@ class AddArticle extends Component {
             title: this.state.previewArticleTitle,
             topic: this.state.topic,
             body: this.state.previewArticleBody,
-            author: username,
+            username: username,
         }
+
 
         postArticle(articleData)
             .then(article => {
@@ -74,6 +79,7 @@ class AddArticle extends Component {
 
 
     render() {
+        const { username } = this.props;
         return (
 
             <>
@@ -124,11 +130,21 @@ class AddArticle extends Component {
                                 </div>
                             }
                             {
-                                this.state.preview && <div className='fieldset_new_article'>
+                                this.state.preview &&
+
+                                <div className='fieldset_new_article'>
                                     <h3><span className='SteelBlue'>Step 3</span> Previw and Publish</h3>
                                     <h3 className='Teal'>{this.state.previewArticleTitle}</h3>
                                     <p >{this.state.previewArticleBody}</p>
-                                    <button className='ArticleSubmit' type='submit' onClick={this.handleArticleSubmit}>Submit</button>
+                                    {username === 'Guest' ?
+                                        (
+                                            <button className='ArticleSubmit' type='submit' onClick={this.handleGuestSubmit}>Thaks for testing</button>
+                                        )
+                                        :
+                                        (
+                                            <button className='ArticleSubmit' type='submit' onClick={this.handleArticleSubmit}>Submit</button>
+                                        )}
+
 
                                 </div>
 
