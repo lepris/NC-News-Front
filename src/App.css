@@ -85,7 +85,8 @@ h3{
   /* border: 1px dotted #eee; */
   font-style: italic;
   font-weight: 300;
-  color: #bbb;
+  font-size: 1em;
+  color: #3E92AE;
 }
 
 
@@ -124,7 +125,7 @@ input, textarea, select{
   padding: 0.9em 0.9em 0.9em 0.9em;
   margin: 0.5em 0.5em 0.5em 0.5em;
   border-radius: 0.25em;
-  border: 1px solid #b8ae58;
+  border: 1px solid #317488;
 }
 label {
   display: block;
