@@ -12,6 +12,7 @@ class ArticleVoter extends Component {
 
   componentDidMount() {
     const { article } = this.props;
+
     this.setState({ article });
   }
 
@@ -21,13 +22,15 @@ class ArticleVoter extends Component {
     );
   };
   handleVoteDown = () => {
-    voteDown("articles", this.state.article.article_id).then(votes => {
-      if (votes <= 0)
-        this.setState({ votesInc: 0, votedDown: true, votedUp: false });
-      else {
-        this.setState({ votesInc: -1, votedDown: true, votedUp: false });
-      }
-    });
+
+    if (this.state.article.votes <= 0) {
+      this.setState({ votesInc: 0, votedDown: true, votedUp: false });
+    }
+    else {
+      voteDown("articles", this.state.article.article_id)
+      this.setState({ votesInc: -1, votedDown: true, votedUp: false });
+    }
+
   };
 
   render() {
