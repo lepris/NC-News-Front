@@ -20,5 +20,12 @@
     background: rgb(206, 221, 175);
 }
 
+.ArticlePostCommentForm {
+    display: flex;
+    flex-direction: column;
+}
+.ArticlePostCommentForm button {
+    width: 20vw;
+}
 
 

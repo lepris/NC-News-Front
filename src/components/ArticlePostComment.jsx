@@ -32,7 +32,7 @@ class ArticlePostComment extends Component {
         return (<form>
             <h3>NEW COMMENT:</h3>
 
-            <fieldset>
+            <div className='ArticlePostCommentForm'>
                 {!this.state.typingErr ?
                     (this.state.tempBody && <p className='error_message success'> Valid comment</p>)
                     :
@@ -41,7 +41,7 @@ class ArticlePostComment extends Component {
                 <textarea type='text' minLength='3' placeholder='Comment Body' value={this.state.tempBody} onChange={this.handleBodyChange}></textarea>
 
                 <button type='submit' disabled={this.state.typingErr} onClick={this.handleSubmit}>Add</button>
-            </fieldset>
+            </div>
         </form>)
     }
 }
