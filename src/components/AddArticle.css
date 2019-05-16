@@ -1,9 +1,25 @@
 .form_new_article {
-    border-radius: 4em;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    width: 100%;
+   /*  flex-direction: column;
+    justify-items: center;    
+    border-radius: 4em;*/
+    
       
 }
 
 .fieldset_new_article {
+   
 display: flex;
-justify-items: center;      
+width: 100%;
+flex-direction: column;
+justify-items: center;  
+border: 1px solid fuchsia;
+
+}
+
+.AddArticleSelect{
+
 }

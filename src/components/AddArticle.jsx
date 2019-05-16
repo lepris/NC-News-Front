@@ -75,56 +75,69 @@ class AddArticle extends Component {
 
     render() {
         return (
-            <form className='form_new_article' >
-                <h3>Lets add an article</h3>
-                {this.state.stepOne && <fieldset className='fieldset_new_article'>
 
-                    <h4>Topic:</h4>
-                    <select onChange={this.handleTopicSelect} value={this.state.topic}>
-                        <option >Select your topic</option>
-                        <option value='Add New'> Add New Topic</option>
-                        {this.state.topics.map((topic, ind) => {
-                            return <option key={ind} value={topic.slug}>{topic.slug}</option>
-                        })}
-                    </select>
-                </fieldset>}
+            <>
+                <div className='HeroArticlesView textContourShadow'><h1>New Article</h1></div>
+                <div className='ThreeColumnContainer'>
+                    < div className='SingleArticleCard' >
+                        <div className='form_new_article' >
 
-                <hr></hr>
-                {this.state.newTopic &&
-                    <fieldset className='fieldset_new_article'>
-                        <h4>Add New Topic</h4>
-                        <input type='text' onChange={this.handleChange} name='topicSlug' placeholder='topic name'></input>
-                        <input type='text' onChange={this.handleChange} name='topicDescription' placeholder='topic description'></input>
-                        <button type='submit' onclick={this.handleAddTopic} className='vote'>Add Topic</button>
-                    </fieldset>
-                }
+                            {this.state.stepOne && <div className='fieldset_new_article'>
 
-                {
-                    this.state.newArticle && <fieldset className='fieldset_new_article'>
-                        <h4>Article</h4>
-                        <p>topics/{this.state.topic}</p>
-                        <label htmlFor='articleTitle'>Title</label>
+                                <h3>Topic:</h3>
+                                <p>Please choose a topic for the new article. To do this simply select one from the Drop Down list or define a new one, by selecting 'Add New Topic' option</p>
+                                <select className='AddArticleSelect' onChange={this.handleTopicSelect} value={this.state.topic}>
+                                    <option >Select your topic</option>
+                                    <option value='Add New'> Add New Topic</option>
+                                    {this.state.topics.map((topic, ind) => {
+                                        return <option key={ind} value={topic.slug}>{topic.slug}</option>
+                                    })}
+                                </select>
+                            </div>}
 
-                        <input type='text' name='previewArticleTitle' onChange={this.handleChange} placeholder='artcle Title'></input>
-                        <label htmlFor='articleBody'>Body</label>
-                        <textarea name='previewArticleBody' onChange={this.handleChange} placeholder='article body'></textarea>
+                            {/* <hr></hr> */}
+                            {this.state.newTopic &&
+                                <div className='fieldset_new_article'>
+                                    <h4>Add New Topic</h4>
+                                    <input type='text' onChange={this.handleChange} name='topicSlug' placeholder='topic name'></input>
+                                    <input type='text' onChange={this.handleChange} name='topicDescription' placeholder='topic description'></input>
+                                    <button type='submit' onclick={this.handleAddTopic} className='vote'>Add Topic</button>
+                                </div>
+                            }
 
-                        <button type='submit' onClick={this.handlePreview} className='vote'>Preview</button>
-                    </fieldset>
-                }
-                {
-                    this.state.preview && <fieldset className='fieldset_new_article'>
-                        <h4 >{this.state.previewArticleTitle}</h4>
-                        <p >{this.state.previewArticleBody}</p>
-                        <button type='submit' onClick={this.handleArticleSubmit}>Submit</button>
+                            {
+                                this.state.newArticle && <div className='fieldset_new_article'>
+                                    <h4>Article</h4>
+                                    <p>topics/{this.state.topic}</p>
+                                    <label htmlFor='articleTitle'>Title</label>
 
-                    </fieldset>
+                                    <input type='text' name='previewArticleTitle' onChange={this.handleChange} placeholder='artcle Title'></input>
+                                    <label htmlFor='articleBody'>Body</label>
+                                    <textarea name='previewArticleBody' onChange={this.handleChange} placeholder='article body'></textarea>
 
-                }
-                {this.state.thankU && <h4>thanks for the article</h4>}
-                {this.state.postErr && <h1>big fat error</h1>}
+                                    <button type='submit' onClick={this.handlePreview} className='vote'>Preview</button>
+                                </div>
+                            }
+                            {
+                                this.state.preview && <div className='fieldset_new_article'>
+                                    <h4 >{this.state.previewArticleTitle}</h4>
+                                    <p >{this.state.previewArticleBody}</p>
+                                    <button type='submit' onClick={this.handleArticleSubmit}>Submit</button>
 
-            </form >)
+                                </div>
+
+                            }
+                            {this.state.thankU && <h4>thanks for the article</h4>}
+                            {this.state.postErr && <h1>big fat error</h1>}
+
+                        </div >
+
+                    </div >
+                </div>
+
+            </>
+
+        )
     }
 }
 export default AddArticle

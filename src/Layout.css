@@ -1,3 +1,9 @@
+.App-main-route{
+    display: flex;
+    flex: 1;
+    padding-right: 1em;
+    flex-direction: column;
+}
 .App, .TopPanel{
    
     background-image: url('./img/mountain_background.jpg');
@@ -46,4 +52,30 @@ flex: 2;
 
 .SinglePage{
     width: 75%;
+}
+
+.SingleColumnContainer {
+    /* width: 20%; */
+    flex-basis: 32%;
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    color: #555;
+    border-bottom: 1px solid gray;
+    background-color: aliceblue;
+    border-radius: 0.2em;
+  }
+
+.ThreeColumnContainer {
+    display: flex;
+    flex: 1;
+    flex-basis: 62%;
+    background-color: aliceblue;
+    border-radius: 0.2em;
+}
+
+  .SingleArticleCard {
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+   flex-direction: column;
 }

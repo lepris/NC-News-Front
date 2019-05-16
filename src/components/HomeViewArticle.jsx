@@ -15,7 +15,7 @@ class HomeViewArticle extends Component {
         return (<>
 
 
-            <div className='SingleArticleContainer'>
+            <div className='SingleColumnContainer'>
                 <div className='SingleArticleCard'>
                     <ArticleAuthorBadge art={art} />
 

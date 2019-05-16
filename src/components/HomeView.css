@@ -14,23 +14,6 @@
     justify-content: flex-start;
 }
 
-.SingleArticleContainer {
-    /* width: 20%; */
-    flex-basis: 32%;
-    margin-bottom: 1em;
-    font-size: 0.8em;
-    color: #555;
-    border-bottom: 1px solid gray;
-    background-color: aliceblue;
-    border-radius: 0.2em;
-  }
-
-.SingleArticleCard {
-    padding: 1em;
-    margin: 1em;
-   
-}
-
 .ArticleDate {
     text-align: left;
 }

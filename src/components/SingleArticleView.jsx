@@ -28,7 +28,7 @@ class SingleArticleView extends Component {
     if (this.state.err) return <Erroneous message={this.state.err.message} />;
     return (
       <div className='SinglePage'>
-        <div className='SingleArticleContainer'>
+        <div className='SingleColumnContainer'>
           <div className='SingleArticleCard'>
             <ArticleComponent art={this.state.article} />
             <ArticleVoter article={this.state.article} />
