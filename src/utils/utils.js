@@ -7,15 +7,10 @@ export const dateFinder = (timestamp) => {
     const month = createdWhen.getMonth() + 1
     const year = createdWhen.getFullYear()
 
-    const now = new Date()
-    const nowDate = now.getDate()
-    const nowMonth = now.getMonth() + 1
-    const nowYear = now.getFullYear()
-
 
     return (
-        <>
+        <div>
             <i className="fas fa-calendar-day ArticleDate"></i>{`${date} / ${month} / ${year}`}
-        </>
+        </div>
     )
 }

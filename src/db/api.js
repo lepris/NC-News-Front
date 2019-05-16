@@ -3,7 +3,7 @@ import axios from "axios";
 const Base_Url = "https://banana-crisp-75783.herokuapp.com/api";
 
 export const fetchAllArticles = async (topic, filter) => {
-  console.log("///fetching all articles in API");
+
   let queryTopic = "";
   let filterType = "";
 
@@ -24,13 +24,13 @@ export const fetchAllArticles = async (topic, filter) => {
 };
 
 export const fetchArticleById = async id => {
-  console.log("hello from Article");
+
   const { data } = await axios.get(`${Base_Url}/articles/${id}`);
   return data;
 };
 
 export const postArticle = async input => {
-  console.log("Posting article");
+
   const {
     data: { article }
   } = await axios.post(`${Base_Url}/articles`, input);
@@ -38,7 +38,7 @@ export const postArticle = async input => {
 };
 
 export const fetchUserByUsername = async username => {
-  console.log("Hello from fetchUser", username);
+
   const {
     data: { userData }
   } = await axios.get(`${Base_Url}/users/${username}`);
@@ -46,7 +46,7 @@ export const fetchUserByUsername = async username => {
 };
 
 export const fetchAllCommentsByArticleId = async artId => {
-  console.log("hello from comments api");
+
   const {
     data: { comments }
   } = await axios.get(`${Base_Url}/articles/${artId}/comments`);
@@ -68,14 +68,14 @@ export const addTopic = async input => {
 };
 
 export const voteUp = async (element, id) => {
-  console.log("comment votes up");
+
   const {
     data: { votes }
   } = await axios.patch(`${Base_Url}/${element}/${id}`, { inc_votes: 1 });
   return votes;
 };
 export const voteDown = async (element, id) => {
-  console.log("comment votes up");
+
   const {
     data: { votes }
   } = await axios.patch(`${Base_Url}/${element}/${id}`, { inc_votes: -1 });
@@ -83,13 +83,13 @@ export const voteDown = async (element, id) => {
 };
 
 export const commentDelete = async comId => {
-  console.log("comment delete");
+
   const data = await axios.delete(`${Base_Url}/comments/${comId}`);
   return data;
 };
 
 export const commentPost = async (artId, input) => {
-  console.log("comment post");
+
   const { data } = await axios.post(
     `${Base_Url}/articles/${artId}/comments`,
     input

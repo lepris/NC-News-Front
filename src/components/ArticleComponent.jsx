@@ -5,14 +5,6 @@ import ArticleAuthorBadge from './ArticleAuthorBadge';
 export const ArticleComponent = ({ art }) => {
 
 
-
-    const createdWhen = new Date(art.created_at)
-
-    const date = createdWhen.getDate()
-    const month = createdWhen.getMonth()
-    const year = createdWhen.getFullYear()
-
-
     return (<>
         {art.author && < ArticleAuthorBadge art={art} />}
 
