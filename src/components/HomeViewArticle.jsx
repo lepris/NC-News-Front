@@ -26,7 +26,7 @@ class HomeViewArticle extends Component {
 
                     <div>
                         {dateFinder(art.created_at)}
-                        <Link className='article-lis-title' to={`/articles/` + art.article_id}><h3>{index}  {art.title}</h3></Link>
+                        <Link className='article-lis-title' to={`/articles/` + art.article_id}><h3>{art.title}</h3></Link>
                         <Link className='article_lis_topic' to={path.includes(art.topic) ? path : `/topics/${art.topic}/`}>topics/{art.topic}/</Link>
                     </div>
 
