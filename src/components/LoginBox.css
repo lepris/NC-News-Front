@@ -1,3 +1,8 @@
+.TwoColumns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .login_message{
     display: flex;
@@ -15,14 +20,15 @@
 
 
 .form_login{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
+    flex: 1;
     flex-direction: column;
-   
+    margin: 1em;
     justify-content: flex-start;
    
 }
 
-.LoginSubmit{
+.LoginSubmit {
     width: 20vw;
 }
