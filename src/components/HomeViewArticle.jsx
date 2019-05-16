@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import ArticleAuthorBadge from './ArticleAuthorBadge';
 import { dateFinder } from '../utils/utils'
+import './HomeViewArticle.css';
 class HomeViewArticle extends Component {
 
     state = {
@@ -9,9 +10,13 @@ class HomeViewArticle extends Component {
     }
 
     render() {
+
         let { path } = this.props;
         const art = this.props.article;
         const { index } = this.props;
+        const articleBody = art.short_body
+
+
         return (<>
 
 
@@ -27,15 +32,17 @@ class HomeViewArticle extends Component {
 
 
 
-                    <p>{art.short_body}...</p>
+                    <p>{articleBody}...</p>
 
 
 
                     <div>
-                        <i className="fas fa-thumbs-up Teal"></i> <span>{art.votes}   </span>
-                        <i className="fas fa-comments SteelBlue"></i> <span>{art.comment_count} </span>
+                        <div className='HomeViewArticleLikes'>
+                            <div className='Icons'><i className="fas fa-thumbs-up Teal"></i>{art.votes}   </div>
+                            <div className='Icons'><i className="fas fa-comments SteelBlue"></i>{art.comment_count} </div>
+                        </div>
                         <Link to={`/articles/` + art.article_id}>
-                            <button className='button_small'><i className="fas fa-book-open"></i>read more</button>
+                            <button className='button_small'><i className="fas fa-book-open"></i>Continue reading</button>
                         </Link>
                     </div>
                 </div>

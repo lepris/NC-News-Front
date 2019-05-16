@@ -1,0 +1,9 @@
+.HomeViewArticleLikes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.Icons{
+    padding: 0.2em;
+}
