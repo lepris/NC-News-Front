@@ -43,7 +43,7 @@ class ArticleVoter extends Component {
             <i className="fas fa-thumbs-up" />
           </button>
           <big className="votes_number">
-            {this.state.article.votes + this.state.votesInc}
+            {this.state.article.votes + this.state.votesInc > 0 ? this.state.article.votes + this.state.votesInc : 0}
           </big>
           <button
             className="vote"
