@@ -37,8 +37,8 @@ class TopicsPanel extends Component {
                     <h3 className='Tan textContourShadow'>Topics selection</h3>
                     <div>
                         {topics.map((topic, ind) => {
-                            return <Link className=' TopicsButton ' key={ind} to={`/topics/${topic.slug}/`}>
-                                <span className='smallTextContourShadow Title'>{topic.description}</span>
+                            return <Link className=' TopicsButton' key={ind} to={`/topics/${topic.slug}/`}>
+                                <span className='textContourShadow Title'>{topic.description}</span>
 
                                 <span className='artCount'>&#8470;{topic.articles_count}</span>
                             </Link >
