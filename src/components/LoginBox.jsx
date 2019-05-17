@@ -55,8 +55,8 @@ class LoginBox extends Component {
     handleGuestSubmit = (ev) => {
         const { userLogin } = this.props
         ev.preventDefault()
-        this.setState({ username: 'Guest' })
-        userLogin('Guest')
+        this.setState({ username: 'guest' })
+        userLogin('guest')
         this.navigateBack()
     }
 
@@ -71,9 +71,12 @@ class LoginBox extends Component {
 
                             <div className='form_login'>
                                 <h3>Continue as Guest</h3>
-                                <p>This is only an exercise version, there is a plan to implement Auth0 in near future,
+                                <p>This is only an exercise version, there is a plan to implement <b>Auth0</b> in near future,
                                      but for now and to save your time I have enabled this Guest Login option.
-                                     Please use this option to fully experience all editing options.</p>
+                                     Please use this option to fully experience all <b>Articles</b> and <b>Comments</b> editing options.</p>
+
+
+
                                 <button className='LoginSubmit' onClick={this.handleGuestSubmit}>Guest User</button>
                             </div>
                             <div className='form_login'>
