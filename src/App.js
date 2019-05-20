@@ -6,6 +6,7 @@ import './MobileLayout.css';
 import { LeftTopicsPanel } from './components/layout/LeftTopicsPanel';
 import { TopBar } from './components/layout/TopBar';
 import { MainRouter } from './components/layout/MainRouter';
+import Skeleton from 'react-loading-skeleton';
 
 class App extends Component {
 
