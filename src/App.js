@@ -49,7 +49,7 @@ class App extends Component {
     return (
 
       <div className="App">
-        {console.log('place for device App ', device)}
+
         <div className="TopPanel">
           <TopBar device={device} username={username} userLogin={this.userLogin} />
         </div>
