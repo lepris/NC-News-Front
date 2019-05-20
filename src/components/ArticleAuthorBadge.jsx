@@ -1,5 +1,6 @@
 import React from 'react';
-import blankImg from '../img/blank-profile-picture.png'
+import blankImg from '../img/blank-profile-picture.png';
+import Skeleton from 'react-loading-skeleton';
 
 export default function ArticleAuthorBadge({ art }) {
     let errorflag = true;
@@ -12,7 +13,7 @@ export default function ArticleAuthorBadge({ art }) {
             </div>
             <div>
                 <span>AUTHOR</span><br></br>
-                <span className='AuthorName SteelBlue'> {art.author}</span>
+                <span className='AuthorName SteelBlue'> {art.author || <Skeleton />}</span>
 
             </div>
         </div >

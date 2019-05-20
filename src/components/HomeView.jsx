@@ -3,7 +3,7 @@ import { fetchAllArticles } from "../db/api";
 import HomeViewArticle from "./HomeViewArticle";
 import { Erroneous } from "./Erroneous";
 import Pagination from "./Pagination";
-import Skeleton from 'react-loading-skeleton';
+import SkeletonHomeView from './SkeletonHomeView';
 import './HomeView.css'
 
 class HomeView extends Component {
@@ -82,9 +82,8 @@ class HomeView extends Component {
     const begin = page > 1 ? (+page - 1) * +howMany : 0;
     const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
     if (this.state.errMSG) return <Erroneous message={this.state.errMSG} />;
-    if (this.state.loading) return <div>
-      <h1>{topic || <Skeleton />}</h1>
-      <Skeleton count={10} /> </div>;
+    if (this.state.loading) return <SkeletonHomeView />
+
     if (!this.state.articlesList.length) return <p>no articles</p>;
 
 

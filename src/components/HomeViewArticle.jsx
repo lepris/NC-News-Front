@@ -3,6 +3,8 @@ import { Link } from '@reach/router';
 import ArticleAuthorBadge from './ArticleAuthorBadge';
 import { dateFinder } from '../utils/utils'
 import './HomeViewArticle.css';
+import Skeleton from 'react-loading-skeleton';
+
 class HomeViewArticle extends Component {
 
     state = {
@@ -26,8 +28,8 @@ class HomeViewArticle extends Component {
 
                     <div>
                         {dateFinder(art.created_at)}
-                        <Link className='article-lis-title' to={`/articles/` + art.article_id}><h3>{art.title}</h3></Link>
-                        <Link className='article_lis_topic' to={path.includes(art.topic) ? path : `/topics/${art.topic}/`}>topics/{art.topic}/</Link>
+                        <Link className='article-lis-title' to={`/articles/` + art.article_id}><h3>{art.title || <Skeleton />}</h3></Link>
+                        <Link className='article_lis_topic' to={path.includes(art.topic) ? path : `/topics/${art.topic}/`}>topics/{art.topic || <Skeleton />}/</Link>
                     </div>
 
 
@@ -38,8 +40,8 @@ class HomeViewArticle extends Component {
 
                     <div>
                         <div className='HomeViewArticleLikes'>
-                            <div className='Icons'><i className="fas fa-thumbs-up Teal"></i>{art.votes}   </div>
-                            <div className='Icons'><i className="fas fa-comments SteelBlue"></i>{art.comment_count} </div>
+                            <div className='Icons'><i className="fas fa-thumbs-up Teal"></i>{art.votes || <Skeleton />}   </div>
+                            <div className='Icons'><i className="fas fa-comments SteelBlue"></i>{art.comment_count || <Skeleton />} </div>
                         </div>
                         <Link to={`/articles/` + art.article_id}>
                             <button className='button_small'><i className="fas fa-book-open"></i>Continue reading</button>

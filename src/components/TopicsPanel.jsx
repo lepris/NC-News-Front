@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { fetchAllTopics } from '../db/api'
 import { Link } from '@reach/router'
 import './TopicsPanel.css'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 
 class TopicsPanel extends Component {
     state = {
-        loading: false,
-        topics: ['coding', 'football'],
+        loading: true,
+        topics: [],
         isOpen: false,
         showTopics: ['Show Topics', 'Hide Topics']
     }
@@ -17,7 +18,7 @@ class TopicsPanel extends Component {
 
     getTopics = () => {
         fetchAllTopics()
-            .then(topics => this.setState({ topics }))
+            .then(topics => this.setState({ topics, loading: false }))
     }
 
     toggleMenu = (e) => {
@@ -31,7 +32,16 @@ class TopicsPanel extends Component {
 
 
 
-        if (this.state.loading) { return <p>Loading...</p> }
+        if (this.state.loading) {
+            return (<SkeletonTheme color="#0A3741" highlightColor="#444">
+                <h3><Skeleton /></h3>
+                <ul>
+                    <li><Skeleton /></li>
+                    <li><Skeleton /></li>
+                    <li><Skeleton /></li>
+                </ul>
+            </SkeletonTheme>)
+        }
         else if (device === 'desktop') {
             return (
                 <>
