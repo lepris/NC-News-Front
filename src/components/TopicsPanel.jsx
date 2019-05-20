@@ -33,7 +33,7 @@ class TopicsPanel extends Component {
 
 
         if (this.state.loading) {
-            return (<SkeletonTheme color="#0A3741" highlightColor="#444">
+            return (<SkeletonTheme color="#0A3741" highlightColor="#3E92AE">
                 <h3><Skeleton /></h3>
                 <ul>
                     <li><Skeleton /></li>

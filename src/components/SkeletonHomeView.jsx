@@ -14,7 +14,7 @@ export default function SkeletonHomeView() {
 
 
     return (
-        <SkeletonTheme color="#0A3741" highlightColor="#444">
+        <SkeletonTheme color="#0A3741" highlightColor="#3E92AE">
 
             <div className='HeroArticlesView textContourShadow'>
                 <h1 ><Skeleton /></h1>
