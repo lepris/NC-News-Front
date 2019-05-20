@@ -2,25 +2,46 @@
     .App {
         padding-top: 0vh;
     }
+    
+    .App-top-route {
+        width: 100%;
+      
+    }
+    .App-main-route {
+        padding-right: 0em;
+    }
+
+    .App-side-route {
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-start;
+    }
+
+    .SinglePage {
+        width: 100%;
+    }
+
+    
+
     .TopPanel {
         position: sticky;
         display: flex;
         flex: 1;
-        justify-content: space-evenly;
-        
+        justify-content: space-between;
+        min-height: 10vh;
         background-color: aqua;
-        
-     
+     }
+    
+    .TopMenuContainer {
+        /* border: 1px solid fuchsia; */
+        /* justify-content: flex-end; */
     }
-    .App-top-route {
-        width: 100%;
-     
-    }
+   
+
     .TopButton {
-        display: flex;
-        flex: 1;
-        width: 20%;
-       
+         display: flex;
+        flex: 1; 
+        max-width: 15vw;
         flex-direction: column;
         
         justify-content: center;
@@ -30,14 +51,19 @@
 
     .TopButtonDescription {
         visibility: hidden;
+        overflow: hidden;
         text-align: center;
         font-size: 0em;
     }
      
     .TopMenuLogo {
         max-width: 6em;
+        flex-shrink: 1;
     }
-
+    .TopOffer {
+        flex-grow: 0;
+    }
+    
     .ContainerPanel {
         display: flex;
         flex: 1;
@@ -46,18 +72,23 @@
         flex-direction: column;
         }
 
-        .LeftPanel {
+    .LeftPanel {
         position: relative;
         display: flex;
+        
+        text-align: left;
         flex: 1;
         top: 0; /*this removes the space for menu*/
-        width: 100vw;
+        width: 100vw;   
+    }
+    .MobileTopicsButton {
+        padding: 1em;
         
     }
     .MainPanel {  
         display: flex;
         flex: 2;
-        background-color: purple;
+        /* background-color: purple; */
         }
 
     .ArticlesContainer {
@@ -67,5 +98,14 @@
         flex-wrap: nowrap;
         justify-content: space-around;
         align-content: flex-end;
+    }
+
+    h1 {
+        padding-top: 0em;
+        margin-top: 0em;
+        font-size: 2.5em;
+    }
+    h3 {
+        font-size: 1.5em;
     }
 }

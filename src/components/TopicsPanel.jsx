@@ -3,6 +3,7 @@ import { fetchAllTopics } from '../db/api'
 import { Link } from '@reach/router'
 import './TopicsPanel.css'
 
+
 class TopicsPanel extends Component {
     state = {
         loading: false,
@@ -27,7 +28,7 @@ class TopicsPanel extends Component {
     render() {
         const { device } = this.props;
         const { topics, isOpen } = this.state;
-        console.log(device)
+
 
 
         if (this.state.loading) { return <p>Loading...</p> }
@@ -46,16 +47,28 @@ class TopicsPanel extends Component {
 
                     </div>
                 </>)
-        } else if (device === 'tablet') {
-            return (<>
-                <p>Tablet View</p>
 
-            </>)
-        } else if (device === 'mobile') {
+        } else if (device === 'mobile' || device === 'tablet') {
             return (<>
-                <button onClick={this.toggleMenu}>{isOpen ? 'Hide Topics' : 'Show Topics'}</button>
+                <button onClick={this.toggleMenu}>
+                    {isOpen ?
+                        <>
+                            <i className="fas fa-eye-slash "></i>
+                            <span>Hide Topics</span>
+                        </>
+                        :
+                        <>
+                            <i className="fas fa-eye "></i>
+                            <span>Show Topics Menu</span>
+                        </>
+
+                    }
+                </button>
                 {isOpen === true && topics.map((topic, ind) => {
-                    return <Link key={ind} state={{ topic: topic.slug }} to={`/topics/${topic.slug}`} ><button onClick={() => this.setState({ isOpen: false })}>{topic.description}</button></Link >
+                    return <Link key={ind} state={{ topic: topic.slug }} to={`/topics/${topic.slug}`} >
+                        <button className='MobileTopicsButton' onClick={() => this.setState({ isOpen: false })}>{topic.description}</button>
+
+                    </Link >
                 })}
             </>)
         }

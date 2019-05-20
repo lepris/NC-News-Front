@@ -3,6 +3,7 @@ import { fetchAllArticles } from "../db/api";
 import HomeViewArticle from "./HomeViewArticle";
 import { Erroneous } from "./Erroneous";
 import Pagination from "./Pagination";
+import Skeleton from 'react-loading-skeleton';
 import './HomeView.css'
 
 class HomeView extends Component {
@@ -75,20 +76,23 @@ class HomeView extends Component {
 
   render() {
     window.scrollTo(0, 0);
-    if (this.state.errMSG) return <Erroneous message={this.state.errMSG} />;
-    if (this.state.loading) return <div>Loading...</div>;
-    if (!this.state.articlesList.length) return <p>no articles</p>;
     const { page, howMany } = this.state;
     const { topic, uri } = this.props;
 
     const begin = page > 1 ? (+page - 1) * +howMany : 0;
     const end = page > 1 ? (+page - 1) * +howMany + +howMany : +howMany;
+    if (this.state.errMSG) return <Erroneous message={this.state.errMSG} />;
+    if (this.state.loading) return <div>
+      <h1>{topic || <Skeleton />}</h1>
+      <Skeleton count={10} /> </div>;
+    if (!this.state.articlesList.length) return <p>no articles</p>;
+
 
     return (
       <>
 
         <div className='HeroArticlesView textContourShadow'>
-          <h1 >{topic || 'All'} articles section</h1>
+          <h1 >{topic} articles section</h1>
           <h4 className='Tan'>{this.props.uri}</h4>
 
 

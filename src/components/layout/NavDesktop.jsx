@@ -21,17 +21,21 @@ export const NavDesktop = ({ username, uri, pageType }) => (
             )
                 :
                 (
-                    <span className='TopButton Patua OutsideButton' onClick={goBack}><i className="fas fa-arrow-left bigIcon"></i>Back</span>
+                    <span className='TopButton Patua OutsideButton' onClick={goBack}>
+                        <i className="fas fa-arrow-left bigIcon"></i>
+                        <span className='TopButtonDescription'>Back</span>
+                    </span>
                 )
             }
 
-
-
-
             {username !== '' ? (
                 <>
-                    <Link className='TopButton Patua OutsideButton' to='/articles/add'> <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span></Link>
-                    <Link className='TopButton Patua OutsideButton' to='/'><i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>Hello, {username[0].toUpperCase() + username.slice(1)}</span></Link>
+                    <Link className='TopButton Patua OutsideButton' to='/articles/add'>
+                        <i className="fas fa-pencil-alt bigIcon"></i><span className='TopButtonDescription'>Add Article</span>
+                    </Link>
+                    <Link className='TopButton Patua OutsideButton' to='/'>
+                        <i className="fas fa-user-alt bigIcon"></i><span className='TopButtonDescription'>Hello, {username[0].toUpperCase() + username.slice(1)}</span>
+                    </Link>
                 </>
             )
                 :
@@ -39,7 +43,8 @@ export const NavDesktop = ({ username, uri, pageType }) => (
                     <>
 
                         <Link to='/login' className='TopButton Patua OutsideButton TopOffer' >
-                            <span ><i className="fas fa-meteor bigIcon"></i><span>Login or Signup to start publishing Articles </span></span>
+                            <span ><i className="fas fa-meteor bigIcon"></i></span>
+                            <span className='TopButtonDescription'> Login or Signup to start publishing Articles </span>
                         </Link>
 
                         <div className='TopButton Patua OutsideButton'>

@@ -2,6 +2,7 @@
     position: fixed;
     
     top: 5.8em;
+    min-width: 20%;
     
     display: flex;
     flex-direction: column;
@@ -13,6 +14,21 @@
     background-color: rgba(202, 231, 250, 0.9);
     border-bottom-left-radius: .5em;
     border-bottom-right-radius: .5em;
+}
+@media only screen and (max-width: 768px) {
+.DropMenu {
+    display: flex;
+   
+    top: 3.8em;
+    left: 0em;
+   
+    width: 100%;
+    margin: 0em;
+    padding: 0em, 0em, .25em, 1em;
+    background-color: rgba(202, 231, 250, 1);
+    
+   
+}
 }
 
 .DropMenu i {
