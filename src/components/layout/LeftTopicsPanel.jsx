@@ -5,7 +5,6 @@ import { Router } from '@reach/router';
 export const LeftTopicsPanel = ({ device }) => (
 
     <>
-        {console.log('place for device Left Topic Panel', device)}
         <Router className='App-side-route'  >
             <TopicsPanel path='/' device={device} />
             <TopicsPanel path='/:filter' device={device} />

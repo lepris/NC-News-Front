@@ -3,7 +3,6 @@ import './errors.css';
 
 
 export const Erroneous = ({ message }) => {
-    console.log(message)
     return (
         <div className='ThreeColumnContainer'>
             < div className='SingleArticleCard' >

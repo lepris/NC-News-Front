@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchAllTopics, addTopic, postArticle } from '../db/api'
 import './AddArticle.css';
-import { navigate, Link } from '@reach/router'
+import { navigate } from '@reach/router'
 class AddArticle extends Component {
     state = {
         topics: [],
@@ -33,7 +33,6 @@ class AddArticle extends Component {
 
         addTopic(inputTopic)
             .then(data => {
-                console.log(data)
                 this.setState({ topic: data.slug, newTopic: false })
                 this.getTopics()
             })
